@@ -1,33 +1,17 @@
-$BCVersion = "18"
-$BCCountry = "de"
-$hostname = "BC-DEV-CWS"
-[bool] $preview = $false
-$sasToken = "*"
-
-$passwdsec = Read-Host 'Input the user`s password' -AsSecureString
-
-$credential = New-Object pscredential $env:USERNAME, $passwdsec
-
-if ($preview -eq $true) {
-    #$artifacturl = Get-BCArtifactUrl -storageAccount bcpublicpreview -type sandbox -version $BCVersion -country $BCCountry -select latest
-    $artifacturl = Get-BCArtifactUrl -storageAccount bcinsider -sasToken $sasToken -type sandbox -version latest -country $BCCountry -select latest
-} else { 
-    $artifacturl = Get-BCArtifactUrl -storageAccount bcartifacts -type sandbox -version $BCVersion -country $BCCountry -select Latest
-}
-
-Write-Host "Artifact-URL: $artifacturl"
-Write-Host "Hostname: $hostname"
+$artifactUrl = Get-BCArtifactUrl -country base #Cloud sandbox with demo data
+# $artifactUrl = Get-BCArtifactUrl -version 18 -type OnPrem -country w1 -select Latest
+$containerName = 'bc18-runtime'
+$credential = New-Object pscredential 'admin', (ConvertTo-SecureString -String 'admin' -AsPlainText -Force)
+$licenseFile = '.\BC18 On Prem ForNAV.flf'
 
 New-BcContainer `
     -accept_eula `
-    -containerName $hostname `
-    -artifactUrl $artifacturl `
-    -auth=Windows `
+    -containerName $containerName `
+    -artifactUrl $artifactUrl `
     -Credential $credential `
-    -updateHosts `
-    -assignPremiumPlan `
-    -licenseFile 'X:\Sync\Red and Bundle\Licenties\BC18 On Prem ForNAV + Own Objects.flf'`
-    -isolation process
+    -auth UserPassword `
+    -licenseFile $licenseFile `
+    -updateHosts
 
 Add-FontsToBCContainer -containerName $containerName -path c:\windows\fonts\*.ttf
 
