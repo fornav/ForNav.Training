@@ -4,6 +4,7 @@
 **/.vscode/
 **/.alpackages/
 *.app
+*.flf
 
 # dependencies
 **/node_modules/
