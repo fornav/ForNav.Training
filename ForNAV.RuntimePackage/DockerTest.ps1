@@ -33,11 +33,11 @@ Install-BcContainerApp -appName "Customizable Report Pack" -containerName $conta
 # Install-BcContainerApp -appName "ForNAV Service" -containerName $containerName
 
 Publish-BcContainerApp -packageType Extension -appFile '.\<your app file>' -containerName $containerName -skipVerification 
-Sync-BcContainerApp -appName "Multiple Report Layout Selector" -Force -containerName $containerName
-Install-BcContainerApp -appName "Multiple Report Layout Selector" -containerName $containerName
+Sync-BcContainerApp -appName "<your app name>" -Force -containerName $containerName
+Install-BcContainerApp -appName "<your app name>" -containerName $containerName
 
 Publish-BcContainerApp -packageType Extension -appFile '.\<your app testfile>' -containerName $containerName -skipVerification 
-Sync-BcContainerApp -appName "Red.MultipleLayouts.Test" -Force -containerName $containerName
-Install-BcContainerApp -appName "Red.MultipleLayouts.Test" -containerName $containerName
+Sync-BcContainerApp -appName "<your test app name>" -Force -containerName $containerName
+Install-BcContainerApp -appName "<your test app name>" -containerName $containerName
 
 Run-TestsInNavContainer -containerName $containerName -credential $credential -detailed -testSuite '<your test suite name>'
