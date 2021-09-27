@@ -1,0 +1,26 @@
+{
+  "id": "1517ca5c-64ff-4dba-b5d0-31aa9add08ac",
+  "name": "Vendor Portals",
+  "publisher": "ForNAV",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "18.0.0.0",
+  "idRanges": [
+    {
+      "from": 63000,
+      "to": 63149
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://DK1.com/help/",
+  "showMyCode": true,
+  "runtime": "7.0"
+}
