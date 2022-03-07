@@ -1,0 +1,31 @@
+{
+  "id": "cdf94b0b-d67b-4fdb-8197-73abb63bef54",
+  "name": "ForNAV Training Demo",
+  "publisher": "ForNAV",
+  "version": "19.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+  ],
+  "screenshots": [],
+  "platform": "19.0.0.0",
+  "application": "19.0.0.0",
+  "idRanges": [
+    {
+      "from": 70630,
+      "to": 90149
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://TrainingDemoSaaS.com/help/",
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "8.0"
+}

@@ -3,6 +3,7 @@
 # BC Extension
 **/.vscode/
 **/.alpackages/
+**/.snapshots/
 *.app
 *.flf
 
