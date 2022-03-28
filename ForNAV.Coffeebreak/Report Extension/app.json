@@ -1,0 +1,35 @@
+{
+  "id": "1a875341-33a9-4ce1-ad77-973cf1bf707b",
+  "name": "Report Extension",
+  "publisher": "ForNAV",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "83326d6d-11f8-49fd-981a-6f266a7c8d81",
+      "name": "Customizable Report Pack",
+      "publisher": "ForNAV",
+      "version": "5.0.0.0"
+    }],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "19.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "8.0"
+}
