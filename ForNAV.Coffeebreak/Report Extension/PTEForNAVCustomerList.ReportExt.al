@@ -1,10 +1,10 @@
-reportextension 50100 "PTE ForNAV Customer - List" extends "ForNAV Customer - List"
+reportextension 50100 "PTE ForNAV Customer List" extends "ForNAV Customer - List"
 {
     dataset
     {
         add(List)
         {
-            column(PTEPrintlogo; PTEPrintlogo) { }
+            column(PTEPrintLogo; PTEPrintLogo) { }
         }
     }
 
@@ -14,22 +14,26 @@ reportextension 50100 "PTE ForNAV Customer - List" extends "ForNAV Customer - Li
         {
             addlast(Options)
             {
-                field(PTEPrintlogo; PTEPrintlogo)
+                field(PTEPrintLogo; PTEPrintLogo)
                 {
                     Caption = 'Print Logo';
-                    ToolTip = 'Specifies if the logo is printed';
-                    ApplicationArea = all;
+                    ToolTip = 'Specifies print logo';
+                    ApplicationArea = All;
                 }
             }
         }
+        trigger OnOpenPage()
+        begin
+            PTEPrintLogo := true;
+        end;
     }
 
     trigger OnPreReport()
     begin
-        // PTEPrintlogo := true;
+        // PTEPrintLogo := false;
     end;
 
     var
         [InDataSet]
-        PTEPrintlogo: Boolean;
+        PTEPrintLogo: Boolean;
 }
