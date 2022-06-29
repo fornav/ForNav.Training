@@ -1,7 +1,5 @@
 // Add this to the OnPreReport trigger
 var lastItem = '',
-    hdrTitles = [],
-    lineTitles = [],
     quantities = []
 
 function addMatrixData() {
