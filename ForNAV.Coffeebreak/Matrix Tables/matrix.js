@@ -12,7 +12,7 @@ function addMatrixData() {
         quantities = []
     }
 
-    let variantinfo = ItemVariant.Description.split(',')
+    let variantinfo = ItemVariant.Description.split(', ')
 
     if (!hdrTitles.includes(variantinfo[0])) {
         hdrTitles.push(variantinfo[0])
