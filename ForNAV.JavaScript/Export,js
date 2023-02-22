@@ -1,0 +1,13 @@
+// const replaceStr = (str, char, replacer) => {
+//   const regex = new RegExp(char, "g")
+//   const replaced = str.replace(regex, replacer)
+//   return replaced
+// }
+
+const addSomeText = (input) => {
+    return input + ' - Some Text' 
+}
+
+module.exports = { addSomeText }
+// or
+// exports.replaceStr = replaceStr
