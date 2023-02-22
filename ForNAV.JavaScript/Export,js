@@ -4,10 +4,15 @@
 //   return replaced
 // }
 
-const addSomeText = (input) => {
-    return input + ' - Some Text' 
+const addSomeText = function (input) {
+    // const addSomeText = (input) => {
+    return input + ' - Some Text'
 }
 
-module.exports = { addSomeText }
+// module.exports = { addSomeText }
 // or
 // exports.replaceStr = replaceStr
+
+export default {
+    addSomeText
+};
