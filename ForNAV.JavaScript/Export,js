@@ -4,7 +4,7 @@
 //   return replaced
 // }
 
-const addSomeText = function (input) {
+function addSomeText(input) {
     // const addSomeText = (input) => {
     return input + ' - Some Text'
 }
@@ -13,6 +13,6 @@ const addSomeText = function (input) {
 // or
 // exports.replaceStr = replaceStr
 
-export default {
-    addSomeText
-};
+// export default {
+//     addSomeText
+// };
