@@ -1,0 +1,51 @@
+{
+  "id": "dee6dbe6-5e89-4913-95b3-422bc03f8c24",
+  "name": "ForNAV.ChangeAttachmentName",
+  "publisher": "ForNAV",
+  "version": "1.0.0.0",
+  "brief": "Translates the email attachment filename.",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "83326d6d-11f8-49fd-981a-6f266a7c8d81",
+      "publisher": "ForNAV",
+      "name": "Customizable Report Pack",
+      "version": "6.3.0.8"
+    },
+    {
+      "id": "f94c6dff-0118-4c1d-a7d4-382033529ed3",
+      "publisher": "ForNAV",
+      "name": "ForNAV Language Module",
+      "version": "6.3.0.8"
+    },
+    {
+      "id": "6f0293d3-86fc-4ff8-9632-54a580be6546",
+      "name": "ForNAV Core",
+      "publisher": "ForNAV",
+      "version": "6.2.0.5"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "22.0.0.0",
+  "idRanges": [
+    {
+      "from": 90100,
+      "to": 90149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "11.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}

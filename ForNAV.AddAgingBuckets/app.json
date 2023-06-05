@@ -1,0 +1,39 @@
+{
+  "id": "bfdb083b-21e3-4e02-a25f-0ecf7b7e9ca0",
+  "name": "ForNAV.AddAgingBuckets",
+  "publisher": "ForNAV",
+  "version": "1.0.0.0",
+  "brief": "Add Aging Buckets",
+  "description": "Adds extra aging buckets to a ForNAV report",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "d6978c22-4a2f-452a-8f12-efdcf158d7e4",
+      "publisher": "ForNAV",
+      "name": "ForNAV Core Development e4",
+      "version": "1.0.0.0"
+    }    
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "22.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "11.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
