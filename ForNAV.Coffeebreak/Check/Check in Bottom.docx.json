@@ -1,0 +1,750 @@
+{
+  "@PageHeight": "2794",
+  "@PaperKind": "Letter",
+  "@ReportUnit": "TenthsOfAMillimeter",
+  "@Margins": "100, 0, 100, 0",
+  "@PageWidth": "2159",
+  "@Font": "Segoe UI, 9pt",
+  "@AlwaysLeftAdjustCodeValues": "true",
+  "@OnPreReportScript": [
+    "CompanyInformation.Get();",
+    "ForNAVCheckSetup.Get();",
+    "ForNAVCheckSetup.CalcFields('Signature');",
+    "var checkTotals = {amount:0, discountAmount:0, netAmount:0};",
+    "",
+    "var model = {",
+    "  amountWritteninText:'',",
+    "  amountInNumbers:'',",
+    "  amount:0,",
+    "  checkNo:'',",
+    "  micr1:'',",
+    "  micr2:'',",
+    "  postingDate: new Date(),",
+    "  pay_toAddress: ''",
+    "}"
+  ],
+  "@OnPreReportMasterScript": "ForNAV Template",
+  "Bands": {
+    "Args": {
+      "@ControlType": "DataItem",
+      "@Name": "Args",
+      "@Id": "1000000002",
+      "@Temporary": "true",
+      "@DataItemTableView": "SORTING(\"Primary Key\")",
+      "@DataItemVarName": "Args",
+      "@DataItemTable": "Table6188771",
+      "Bands": {
+        "VoidGenJnlLine": {
+          "@ControlType": "DataItem",
+          "@Name": "VoidGenJnlLine",
+          "@Id": "9788",
+          "@ReqFilterFields": "\"Journal Template Name\",\"Journal Batch Name\",\"Posting Date\"",
+          "@DataItemTableView": "SORTING(\"Journal Template Name\", \"Journal Batch Name\", \"Posting Date\", \"Document No.\")",
+          "@DataItemVarName": "VoidGenJnlLine",
+          "@DataItemTable": "Table81",
+          "Fields": {
+            "JournalTemplateName": {
+              "@FieldName": "Journal Template Name",
+              "@FieldNo": "1"
+            },
+            "PostingDate": {
+              "@FieldName": "Posting Date",
+              "@FieldNo": "5"
+            },
+            "DocumentNo": {
+              "@FieldName": "Document No.",
+              "@FieldNo": "7"
+            },
+            "JournalBatchName": {
+              "@FieldName": "Journal Batch Name",
+              "@FieldNo": "51"
+            }
+          }
+        },
+        "GenJnlLnBuffer": {
+          "@ControlType": "DataItem",
+          "@Name": "GenJnlLnBuffer",
+          "@NewPagePerRecord": "true",
+          "@Id": "1000000001",
+          "@OnAfterGetRecordScript": [
+            "checkTotals.amount = 0;",
+            "checkTotals.discountAmount = 0; ",
+            "checkTotals.netAmount = 0;",
+            "",
+            "",
+            "BankAccount.Get(GenJnlLnBuffer.BalAccountNo);"
+          ],
+          "@Temporary": "true",
+          "@DataItemTableView": "SORTING(\"Journal Template Name\", \"Journal Batch Name\", \"Line No.\")",
+          "@DataItemVarName": "GenJnlLnBuffer",
+          "@DataItemTable": "Table81",
+          "Bands": {
+            "Model": {
+              "@ControlType": "DataItem",
+              "@Name": "Model",
+              "@TotalColumns": "Model$Amount,Model$DiscountAmount,Model$NetAmount",
+              "@TotalFields": "65,70,75",
+              "@Id": "1000000004",
+              "@OnAfterGetRecordScript": [
+                "if (Model.PartNo == 1) {",
+                "  checkTotals.amount += Model.Amount;",
+                "  checkTotals.discountAmount += Model.DiscountAmount; ",
+                "  checkTotals.netAmount += Model.NetAmount;",
+                "}",
+                "",
+                "if (Model.AmountWritteninText != '') {",
+                "model.amountWritteninText = Model.AmountWritteninText + ' US DOLLARS';",
+                "model.amountInNumbers = Model.AmountinNumbers;",
+                "model.amount = Model.Amount;",
+                "model.checkNo = Model.CheckNo;",
+                "model.micr1 = 'C' + Model.CheckNo + 'C';",
+                "model.micr2 = 'A' + Model.BankRoutingNo + 'A ' + Model.BankAccountNo + 'C';",
+                "model.postingDate = Model.PostingDate;",
+                "model.pay_toAddress = Model.FieldGroups.Pay_toAddress;",
+                "}"
+              ],
+              "@GroupTotalFields": "\"2\"",
+              "@GroupTotalFieldNames": "\"Part No.\"",
+              "@Temporary": "true",
+              "@DataItemTableView": "SORTING(\"Page No.\", \"Part No.\", \"Line No.\")",
+              "@DataItemVarName": "Model",
+              "@DataItemTable": "Table6188774",
+              "Bands": {
+                "Stub": {
+                  "@ControlType": "Body",
+                  "@Name": "Stub",
+                  "@Signature": "abc",
+                  "@ShowOutput": "Model.GetOptionValue('Type') == 2",
+                  "@Height": "63.5",
+                  "Controls": {
+                    "table3": {
+                      "@Name": "table3",
+                      "@ControlType": "Table",
+                      "@Size": "1998.18579,63.5",
+                      "@Location": "0,0",
+                      "@Borders": "Left, Right",
+                      "Rows": {
+                        "tableRow3": {
+                          "@Name": "tableRow3",
+                          "@ControlType": "TableRow",
+                          "@Weight": "0.5679012345679012",
+                          "Cells": {
+                            "tableCell13": {
+                              "@Name": "tableCell13",
+                              "@ControlType": "TableCell",
+                              "@Borders": "Left",
+                              "@Padding": "10,0,0,0,254",
+                              "@Weight": "0.38576302304861432",
+                              "@SourceExpression": "Model.ExternalDocumentNo"
+                            },
+                            "tableCell14": {
+                              "@Name": "tableCell14",
+                              "@ControlType": "TableCell",
+                              "@Weight": "0.41655890665891127",
+                              "@SourceExpression": "Model.DocumentDate"
+                            },
+                            "tableCell15": {
+                              "@Name": "tableCell15",
+                              "@ControlType": "TableCell",
+                              "@Weight": "1.4376330494083469",
+                              "@SourceExpression": "GenJnlLnBuffer.Description",
+                              "@ShowOutput": "Model.DocumentNo  != ''"
+                            },
+                            "tableCell19": {
+                              "@Name": "tableCell19",
+                              "@ControlType": "TableCell",
+                              "@Weight": "0.44864313493760111",
+                              "@BlankZero": "true",
+                              "@SourceExpression": "Model.Amount",
+                              "@HorzAlign": "Right"
+                            },
+                            "tableCell20": {
+                              "@Name": "tableCell20",
+                              "@ControlType": "TableCell",
+                              "@Weight": "0.44864183023310156",
+                              "@BlankZero": "true",
+                              "@SourceExpression": "Model.DiscountAmount",
+                              "@HorzAlign": "Right"
+                            },
+                            "tableCell21": {
+                              "@Name": "tableCell21",
+                              "@ControlType": "TableCell",
+                              "@Borders": "Right",
+                              "@Padding": "0,10,0,0,254",
+                              "@Weight": "0.44864240865460114",
+                              "@BlankZero": "true",
+                              "@SourceExpression": "Model.NetAmount",
+                              "@HorzAlign": "Right"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "StubHeader": {
+                  "@ControlType": "GroupHeader",
+                  "@Name": "StubHeader",
+                  "@BackColor": "Transparent",
+                  "@Padding": "0,0,0,0,254",
+                  "@Signature": "abc",
+                  "@ShowOutput": "(Model.GetOptionValue('Type') == 2)",
+                  "@Height": "179.916656",
+                  "Controls": {
+                    "TextBox19": {
+                      "@Name": "TextBox19",
+                      "@ControlType": "TextBox",
+                      "@Size": "246.000122,58.42",
+                      "@Location": "1418.87317,25.0000076",
+                      "@Font": "Segoe UI, 12pt, style=Bold",
+                      "@HorzAlign": "Right",
+                      "@SourceExpression": "'Check'"
+                    },
+                    "TextBox14": {
+                      "@Name": "TextBox14",
+                      "@ControlType": "TextBox",
+                      "@Size": "246.000122,58.42",
+                      "@Location": "1664.87317,25.0000076",
+                      "@Font": "Segoe UI, 12pt, style=Bold",
+                      "@HorzAlign": "Right",
+                      "@SourceExpression": "Model.CheckNo"
+                    },
+                    "TextBox13": {
+                      "@Name": "TextBox13",
+                      "@ControlType": "TextBox",
+                      "@Size": "250.000244,58.42",
+                      "@Location": "1097.37292,25.0000076",
+                      "@Font": "Segoe UI, 12pt, style=Bold",
+                      "@SourceExpression": "Model.PostingDate",
+                      "@FormatString": "MM/dd/yyyy"
+                    },
+                    "TextBox12": {
+                      "@Name": "TextBox12",
+                      "@ControlType": "TextBox",
+                      "@Size": "635,58.42",
+                      "@Location": "102.567062,25.0000076",
+                      "@Font": "Segoe UI, 12pt, style=Bold",
+                      "@SourceExpression": "Model.Pay_toName"
+                    },
+                    "table4": {
+                      "@Name": "table4",
+                      "@ControlType": "Table",
+                      "@Size": "1998.18579,92.6041641",
+                      "@Location": "0,87.3125",
+                      "Rows": {
+                        "tableRow4": {
+                          "@Name": "tableRow4",
+                          "@ControlType": "TableRow",
+                          "@Weight": "0.5679012345679012",
+                          "Cells": {
+                            "tableCell22": {
+                              "@Name": "tableCell22",
+                              "@ControlType": "TableCell",
+                              "@Borders": "All",
+                              "@Padding": "10,0,0,0,254",
+                              "@Font": "Segoe UI, 9pt, style=Bold",
+                              "@Weight": "0.38576302587873712",
+                              "@MultiLine": "true",
+                              "@SourceExpression": "Model.FieldCaptions.DocumentNo"
+                            },
+                            "tableCell23": {
+                              "@Name": "tableCell23",
+                              "@ControlType": "TableCell",
+                              "@Borders": "All",
+                              "@Font": "Segoe UI, 9pt, style=Bold",
+                              "@Weight": "0.41655890382878846",
+                              "@MultiLine": "true",
+                              "@SourceExpression": "Model.FieldCaptions.DocumentDate"
+                            },
+                            "tableCell24": {
+                              "@Name": "tableCell24",
+                              "@ControlType": "TableCell",
+                              "@Borders": "All",
+                              "@Font": "Segoe UI, 9pt, style=Bold",
+                              "@Weight": "1.4376337065991569",
+                              "@MultiLine": "true",
+                              "@SourceExpression": "'Posting Description'"
+                            },
+                            "tableCell25": {
+                              "@Name": "tableCell25",
+                              "@ControlType": "TableCell",
+                              "@Borders": "All",
+                              "@Font": "Segoe UI, 9pt, style=Bold",
+                              "@Weight": "0.44864250233773562",
+                              "@MultiLine": "true",
+                              "@SourceExpression": "Model.FieldCaptions.Amount",
+                              "@HorzAlign": "Right"
+                            },
+                            "tableCell26": {
+                              "@Name": "tableCell26",
+                              "@ControlType": "TableCell",
+                              "@Borders": "All",
+                              "@Font": "Segoe UI, 9pt, style=Bold",
+                              "@Weight": "0.44864202187563762",
+                              "@MultiLine": "true",
+                              "@SourceExpression": "Model.FieldCaptions.DiscountAmount",
+                              "@HorzAlign": "Right"
+                            },
+                            "tableCell27": {
+                              "@Name": "tableCell27",
+                              "@ControlType": "TableCell",
+                              "@Borders": "All",
+                              "@Padding": "0,10,0,0,254",
+                              "@Font": "Segoe UI, 9pt, style=Bold",
+                              "@Weight": "0.44864219242112069",
+                              "@MultiLine": "true",
+                              "@SourceExpression": "Model.FieldCaptions.NetAmount",
+                              "@HorzAlign": "Right"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "CheckFooter": {
+                  "@ControlType": "Footer",
+                  "@Name": "CheckFooter",
+                  "@PrintOnEveryPage": "true",
+                  "@PlaceInBottom": "true",
+                  "@Signature": "abc",
+                  "@Height": "820",
+                  "Controls": {
+                    "PictureBox1": {
+                      "@ControlType": "PictureBox",
+                      "@Name": "PictureBox1",
+                      "@Size": "825.4999,159.829834",
+                      "@Location": "1097.37292,447.463",
+                      "@Sizing": "ZoomImage",
+                      "@SourceExpression": "ForNAVCheckSetup.Signature"
+                    },
+                    "TextBox23": {
+                      "@Name": "TextBox23",
+                      "@ControlType": "TextBox",
+                      "@Size": "602.185547,58.41999",
+                      "@Location": "0,118.4201",
+                      "@Font": "Segoe UI, 9pt",
+                      "@SourceExpression": "CompanyInformation.City + ' ' + CompanyInformation.County + ' ' + CompanyInformation.PostCode"
+                    },
+                    "TextBox22": {
+                      "@Name": "TextBox22",
+                      "@ControlType": "TextBox",
+                      "@Size": "602.1855,58.41999",
+                      "@Location": "0,60.0000534",
+                      "@Font": "Segoe UI, 9pt",
+                      "@SourceExpression": "CompanyInformation.Address + ' ' + CompanyInformation.Address2"
+                    },
+                    "TextBox20": {
+                      "@Name": "TextBox20",
+                      "@ControlType": "TextBox",
+                      "@Size": "602.185547,58.42",
+                      "@Location": "0,0",
+                      "@Font": "Segoe UI, 12pt, style=Bold",
+                      "@HorzAlign": "Left",
+                      "@SourceExpression": "CompanyInformation.Name"
+                    },
+                    "TextBox18": {
+                      "@Name": "TextBox18",
+                      "@ControlType": "TextBox",
+                      "@Size": "812.6874,121.708336",
+                      "@Location": "602.185547,60.0000534",
+                      "@Font": "Segoe UI, 9pt",
+                      "@MultiLine": "true",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Center",
+                      "@SourceExpression": "BankAccount.Name + '\\n' +  BankAccount.TransitNo"
+                    },
+                    "TextBox16": {
+                      "@Name": "TextBox16",
+                      "@ControlType": "TextBox",
+                      "@Size": "400.2506,93.89578",
+                      "@Location": "847.9352,238.442169",
+                      "@Font": "Segoe UI, 12pt",
+                      "@HorzAlign": "Left",
+                      "@SourceExpression": "model.amount"
+                    },
+                    "Label3": {
+                      "@Name": "Label3",
+                      "@ControlType": "Label",
+                      "@Size": "96.51849,93.89575",
+                      "@Location": "751.4167,238.442169",
+                      "@HorzAlign": "Left",
+                      "@MultiLine": "true",
+                      "@CaptionML": "ENU=PAY ONLY"
+                    },
+                    "Label2": {
+                      "@Name": "Label2",
+                      "@ControlType": "Label",
+                      "@Size": "136.206,189.145752",
+                      "@Location": "0,447.463",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@MultiLine": "true",
+                      "@CaptionML": "ENU=TO THE ORDER OF"
+                    },
+                    "Label1": {
+                      "@Name": "Label1",
+                      "@ControlType": "Label",
+                      "@Size": "136.206009,58.4199829",
+                      "@Location": "0,348.649261",
+                      "@CaptionML": "ENU=PAY"
+                    },
+                    "Table1": {
+                      "@Name": "Table1",
+                      "@ControlType": "Table",
+                      "@Size": "508,127",
+                      "@Borders": "All",
+                      "@Location": "1414.87292,118.208389",
+                      "Rows": {
+                        "tableRow1": {
+                          "@Name": "tableRow1",
+                          "@ControlType": "TableRow",
+                          "@Weight": "1",
+                          "Cells": {
+                            "tableCell2": {
+                              "@Name": "tableCell2",
+                              "@ControlType": "TableCell",
+                              "@Font": "Segoe UI, 8pt",
+                              "@BackColor": "Gainsboro",
+                              "@Weight": "0.62277726301058067",
+                              "@SourceExpression": "'DATE'",
+                              "@HorzAlign": "Left"
+                            },
+                            "tableCell3": {
+                              "@Name": "tableCell3",
+                              "@ControlType": "TableCell",
+                              "@Weight": "1.3772227369894192",
+                              "@SourceExpression": "model.postingDate",
+                              "@HorzAlign": "Center",
+                              "@FormatString": "MM/dd/yyyy"
+                            }
+                          }
+                        },
+                        "tableRow2": {
+                          "@Name": "tableRow2",
+                          "@ControlType": "TableRow",
+                          "@Weight": "1",
+                          "Cells": {
+                            "tableCell4": {
+                              "@Name": "tableCell4",
+                              "@ControlType": "TableCell",
+                              "@Font": "Segoe UI, 8pt",
+                              "@BackColor": "Gainsboro",
+                              "@Weight": "0.62277726301058067",
+                              "@SourceExpression": "'AMOUNT'",
+                              "@HorzAlign": "Left"
+                            },
+                            "tableCell5": {
+                              "@Name": "tableCell5",
+                              "@ControlType": "TableCell",
+                              "@Weight": "1.3772227369894192",
+                              "@SourceExpression": "model.amountInNumbers",
+                              "@HorzAlign": "Center"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Shape1": {
+                      "@Name": "Shape1",
+                      "@ControlType": "Shape",
+                      "@Size": "825.4999,29.315918",
+                      "@Location": "1097.37292,607.292847",
+                      "@Stretch": "true",
+                      "@Angle": "90",
+                      "@ShapeType": "HorzLine",
+                      "Shape": {
+                        "@ShapeName": "Line"
+                      }
+                    },
+                    "TextBox47": {
+                      "@Name": "TextBox47",
+                      "@ControlType": "TextBox",
+                      "@Size": "780.666748,189.145752",
+                      "@Location": "258.1225,447.463",
+                      "@Font": "Segoe UI, 10pt",
+                      "@VertAlign": "Bottom",
+                      "@HorzAlign": "Left",
+                      "@SourceExpression": "model.pay_toAddress"
+                    },
+                    "TextBox49": {
+                      "@Name": "TextBox49",
+                      "@ControlType": "TextBox",
+                      "@Size": "812.6875,60",
+                      "@Location": "602.185547,0",
+                      "@Font": "Segoe UI, 9pt, style=Bold",
+                      "@HorzAlign": "Center",
+                      "@SourceExpression": "BankAccount.Name"
+                    },
+                    "TextBox50": {
+                      "@Name": "TextBox50",
+                      "@ControlType": "TextBox",
+                      "@Size": "1395.61914,58.4200439",
+                      "@Location": "136.206,348.649261",
+                      "@Font": "Segoe UI, 12pt",
+                      "@SourceExpression": "model.amountWritteninText"
+                    },
+                    "TextBox53": {
+                      "@Name": "TextBox53",
+                      "@ControlType": "TextBox",
+                      "@Size": "261.9375,58.42",
+                      "@Location": "1598.1001,24.9999275",
+                      "@Font": "Segoe UI, 12pt, style=Bold",
+                      "@HorzAlign": "Right",
+                      "@SourceExpression": "model.checkNo"
+                    },
+                    "TextBox9": {
+                      "@Name": "TextBox9",
+                      "@ControlType": "TextBox",
+                      "@Size": "357.3333,58.4199829",
+                      "@Location": "258.1225,705.725647",
+                      "@Font": "MICR Encoding, 18pt",
+                      "@HorzAlign": "Right",
+                      "@SourceExpression": "model.micr1"
+                    },
+                    "TextBox10": {
+                      "@Name": "TextBox10",
+                      "@ControlType": "TextBox",
+                      "@Size": "950.290039,58.4199829",
+                      "@Location": "647.809937,705.725647",
+                      "@Font": "MICR Encoding, 18pt",
+                      "@SourceExpression": "model.micr2"
+                    }
+                  }
+                },
+                "StbFooter": {
+                  "@ControlType": "GroupFooter",
+                  "@Name": "StbFooter",
+                  "@Signature": "abc",
+                  "@ShowOutput": "Model.GetOptionValue('Type') == 2",
+                  "@Height": "173.649078",
+                  "Controls": {
+                    "Table2": {
+                      "@Name": "Table2",
+                      "@ControlType": "Table",
+                      "@Size": "1998.18579,87.524",
+                      "@Borders": "Top, Bottom",
+                      "@Location": "0,0",
+                      "Rows": {
+                        "tableRow5": {
+                          "@Name": "tableRow5",
+                          "@ControlType": "TableRow",
+                          "@Weight": "1",
+                          "Cells": {
+                            "tableCell8": {
+                              "@Name": "tableCell8",
+                              "@ControlType": "TableCell",
+                              "@Borders": "Left, Top, Bottom",
+                              "@Weight": "1"
+                            },
+                            "tableCell9": {
+                              "@Name": "tableCell9",
+                              "@ControlType": "TableCell",
+                              "@Padding": "0,10,0,0,254",
+                              "@Font": "Segoe UI, 9pt, style=Bold",
+                              "@Weight": "5.8826202632874018",
+                              "@SourceExpression": "CurrReport.StandardCaptions.Total",
+                              "@HorzAlign": "Right"
+                            },
+                            "tableCell10": {
+                              "@Name": "tableCell10",
+                              "@ControlType": "TableCell",
+                              "@Borders": "All",
+                              "@Padding": "0,10,0,0,254",
+                              "@Weight": "0.9842529296875",
+                              "@SourceExpression": "checkTotals.netAmount"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Fields": {
+                "PageNo": {
+                  "@FieldName": "Page No.",
+                  "@FieldNo": "1"
+                },
+                "PartNo": {
+                  "@FieldName": "Part No.",
+                  "@FieldNo": "2"
+                },
+                "LineNo": {
+                  "@FieldName": "Line No.",
+                  "@FieldNo": "3"
+                },
+                "Type": {
+                  "@FieldName": "Type",
+                  "@FieldNo": "8"
+                },
+                "CheckNo": {
+                  "@FieldName": "Check No.",
+                  "@FieldNo": "10"
+                },
+                "AmountWritteninText": {
+                  "@FieldName": "Amount Written in Text",
+                  "@FieldNo": "11"
+                },
+                "AmountinNumbers": {
+                  "@FieldName": "Amount in Numbers",
+                  "@FieldNo": "12"
+                },
+                "Pay_toName": {
+                  "@FieldName": "Pay-to Name",
+                  "@FieldNo": "13"
+                },
+                "BankAccountNo": {
+                  "@FieldName": "Bank Account No.",
+                  "@FieldNo": "15"
+                },
+                "BankRoutingNo": {
+                  "@FieldName": "Bank Routing No.",
+                  "@FieldNo": "18"
+                },
+                "DocumentDate": {
+                  "@FieldName": "Document Date",
+                  "@FieldNo": "50"
+                },
+                "DocumentNo": {
+                  "@FieldName": "Document No.",
+                  "@FieldNo": "55"
+                },
+                "ExternalDocumentNo": {
+                  "@FieldName": "External Document No.",
+                  "@FieldNo": "60"
+                },
+                "Amount": {
+                  "@FieldName": "Amount",
+                  "@FieldNo": "65"
+                },
+                "DiscountAmount": {
+                  "@FieldName": "Discount Amount",
+                  "@FieldNo": "70"
+                },
+                "NetAmount": {
+                  "@FieldName": "Net Amount",
+                  "@FieldNo": "75"
+                },
+                "PostingDate": {
+                  "@FieldName": "Posting Date",
+                  "@FieldNo": "100"
+                }
+              }
+            }
+          },
+          "Fields": {
+            "JournalTemplateName": {
+              "@FieldName": "Journal Template Name",
+              "@FieldNo": "1"
+            },
+            "LineNo": {
+              "@FieldName": "Line No.",
+              "@FieldNo": "2"
+            },
+            "Description": {
+              "@FieldName": "Description",
+              "@FieldNo": "8"
+            },
+            "BalAccountNo": {
+              "@FieldName": "Bal. Account No.",
+              "@FieldNo": "11"
+            },
+            "JournalBatchName": {
+              "@FieldName": "Journal Batch Name",
+              "@FieldNo": "51"
+            }
+          }
+        }
+      },
+      "Fields": {
+        "PrimaryKey": {
+          "@FieldName": "Primary Key",
+          "@FieldNo": "1"
+        }
+      }
+    },
+    "topMarginBand1": {
+      "@Name": "topMarginBand1",
+      "@ControlType": "TopMargin",
+      "@Height": "100"
+    },
+    "bottomMarginBand1": {
+      "@Name": "bottomMarginBand1",
+      "@ControlType": "BottomMargin",
+      "@Height": "0"
+    }
+  },
+  "Records": {
+    "CompanyInformation": {
+      "@Table": "Company Information",
+      "@No": "79",
+      "@Name": "CompanyInformation",
+      "Fields": {
+        "Name": {
+          "@FieldName": "Name",
+          "@FieldNo": "2"
+        },
+        "Address": {
+          "@FieldName": "Address",
+          "@FieldNo": "4"
+        },
+        "Address2": {
+          "@FieldName": "Address 2",
+          "@FieldNo": "5"
+        },
+        "City": {
+          "@FieldName": "City",
+          "@FieldNo": "6"
+        },
+        "PostCode": {
+          "@FieldName": "Post Code",
+          "@FieldNo": "30"
+        },
+        "County": {
+          "@FieldName": "County",
+          "@FieldNo": "31"
+        }
+      }
+    },
+    "ForNAVSetup": {
+      "@Table": "ForNAV Setup",
+      "@No": "6188471",
+      "@Name": "ForNAVSetup"
+    },
+    "ForNAVCheckSetup": {
+      "@Table": "ForNAV Check Setup",
+      "@No": "6188781",
+      "@Name": "ForNAVCheckSetup",
+      "Fields": {
+        "Signature": {
+          "@FieldName": "Signature",
+          "@FieldNo": "30"
+        }
+      }
+    },
+    "Model2": {
+      "@Table": "ForNAV Check Model",
+      "@No": "6188774",
+      "@Name": "Model2"
+    },
+    "BankAccount": {
+      "@Table": "Bank Account",
+      "@No": "270",
+      "@Name": "BankAccount",
+      "Fields": {
+        "Name": {
+          "@FieldName": "Name",
+          "@FieldNo": "2"
+        },
+        "TransitNo": {
+          "@FieldName": "Transit No.",
+          "@FieldNo": "14"
+        }
+      }
+    }
+  },
+  "DesignerOptions": {
+    "@ShowExportWarnings": "false"
+  }
+}
