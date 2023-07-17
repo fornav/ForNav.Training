@@ -1,12 +1,9 @@
-$artifactUrl = Get-BCArtifactUrl -version 21 -type OnPrem -country us -select Latest
-$containerName = 'bc210-uc'
-# $containerName = 'bc210-upgrade'
-# $containerName = 'bc210-dll'
+$artifactUrl = Get-BCArtifactUrl -version 22 -type OnPrem -country w1 -select Latest
+$containerName = 'bc220-uc'
 $credential = New-Object pscredential 'admin', (ConvertTo-SecureString -String 'admin' -AsPlainText -Force)
-$licenseFile = 'X:\Sync\Red and Bundle\Licenties\BC21 On Prem ForNAV + Own Objects.flf'
-$ucInstallFolder = 'X:\Sync\Red and Bundle\Development\Source Code\Cust.ForNAV\ForNAV Docker Installer\UniversalCodeApp'
-
-# $additionalParameters = @("--publish 9031:9030")
+$licenseFile = './BC22 On Prem ForNAV.bclicense'
+# Specify the path to your Universal Code installation foledr. This should contain the Universal Code app files, the ForNAV installer file, and your installation script.
+$ucInstallFolder = './UniversalCodeApp'
 
 New-BcContainer `
     -accept_eula `
@@ -19,13 +16,10 @@ New-BcContainer `
     -isolation hyperv `
     -EnableTaskScheduler:$true `
     -useGenericImage "$(Get-BestGenericImageName)-dev"
-    # -additionalParameters $additionalParameters
-    
-#    -useSSL `
 
 Add-FontsToBCContainer -containerName $containerName -path c:\windows\fonts\*.ttf
 
 docker stop $containerName
 $dest = "{0}:\{1}" -f $containerName, 'ForNAVUC'
 docker cp $ucInstallFolder $dest
-# docker run --rm -it $containerName
+docker run --rm -it $containerName
