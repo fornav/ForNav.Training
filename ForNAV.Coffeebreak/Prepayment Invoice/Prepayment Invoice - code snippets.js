@@ -1,26 +1,26 @@
 // Line DataItem - OnPreDataItem
-var amt = 0;
-var amtPpt = 0;
-var pptLine = false;
-var hasPpt = false;
+var amount = 0;
+var amountPrepayment = 0;
+var prepaymentLine = false;
+var hasPrepayment = false;
 
 
 // Line - OnAfterGetRecord
-pptLine = Line.Amount < 0 && Line.Type == Line.FieldOptions.Type.G_LAccount;
+prepaymentLine = Line.Amount < 0 && Line.Type == Line.FieldOptions.Type.G_LAccount;
 
-if (!pptLine) {
-    amt += Line.Amount;
+if (prepaymentLine) {
+    hasPrepayment = true;
+    amountPrepayment += Line.Amount;
 } else {
-    hasPpt = true;
-    amtPpt += Line.Amount;
+    amount += Line.Amount;
 }
 
 // Text box
     // Source output
-Header.FieldLookups.CurrencyCode + ' ' + amtPpt + ' (excl. VAT) of this invoice has been prepaid.'
+Header.FieldLookups.CurrencyCode + ' ' + -amountPrepayment + ' (excl. VAT) of this invoice has been prepaid.'
 
     //ShowOutput
-hasPpt
+hasPrepayment
 
     // OnPrint
 CurrControl.BackColor = 'MistyRose'
