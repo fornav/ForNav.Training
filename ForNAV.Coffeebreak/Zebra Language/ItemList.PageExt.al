@@ -23,7 +23,7 @@ pageextension 50100 "PTE Item List" extends "Item List"
                 begin
                     ZebraLayout := ZebraPrint.GetLayoutFromFileStorage('ITEMLABEL', 'ZEBRA');
                     ZebraPrint.ReplacePlaceholders(Rec, ZebraLayout);
-                    ZebraPrint.PrintLayout('Item Label', 'Zebra Demo', ZebraLayout);
+                    // ZebraPrint.PrintLayout('Item Label', 'Zebra Demo', ZebraLayout);
                 end;
             }
         }
