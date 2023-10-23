@@ -6,7 +6,7 @@ reportextension 50100 "PTE ForNAV Statement" extends "ForNAV Statement"
         {
             addlast("Aging Band")
             {
-                field(ColumnCount; Args."Column Count")
+                field(PTEColumnCount; Args."Column Count")
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Column Count';
