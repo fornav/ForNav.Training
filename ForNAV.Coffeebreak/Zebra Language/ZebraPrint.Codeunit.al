@@ -27,5 +27,20 @@ codeunit 50100 "PTE Zebra Print"
         ZebraLayout := ZebraLayout.Replace('{NO}', Item."No.").Replace('{DESCRIPTION}', Item.Description);
     end;
 
+    internal procedure PrintLayout(DocumentName: Text; PrinterName: Text; ZebraLayout: Text)
+    var
+        DirPrtQueue: Record "ForNAV DirPrt Queue";
+        TempBlob: Codeunit "Temp Blob";
+        Instr: InStream;
+        OutStr: OutStream;
+    begin
+        // Create an InStream with the Zebra language
+        TempBlob.CreateOutStream(OutStr);
+        OutStr.WriteText(ZebraLayout);
+        TempBlob.CreateInStream(Instr);
+
+        // Create a print job on the print queue
+        DirPrtQueue.Create(DocumentName, PrinterName, Instr, DirPrtQueue.ContentType::Zebra);
+    end;
 
 }
