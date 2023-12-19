@@ -30,7 +30,7 @@
   "idRanges": [
     {
       "from": 50100,
-      "to": 50149
+      "to": 70149
     }
   ],
   "resourceExposurePolicy": {
@@ -41,5 +41,6 @@
   "runtime": "12.0",
   "features": [
     "NoImplicitWith"
-  ]
+  ],
+  "target": "Cloud"
 }
