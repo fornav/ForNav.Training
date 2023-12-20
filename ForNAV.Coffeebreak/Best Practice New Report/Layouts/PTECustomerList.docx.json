@@ -4,6 +4,7 @@
   "@Dpi": "254",
   "@Font": "Bahnschrift Light, 10pt",
   "@Margins": "0, 0, 0, 200",
+  "@ReportsForNavVersion": "7.2.0.2496",
   "@ObjectName": "PTE Customer List",
   "Bands": {
     "Customer": {
@@ -81,7 +82,7 @@
               "@Location": "1446.47925,43.58003",
               "@Dpi": "254",
               "@Font": "Bahnschrift, 11pt",
-              "@BackColor": "Lime",
+              "@BackColor": "255,255,128,0",
               "@HorzAlign": "Center",
               "@SourceExpression": "CurrReport.PageNo + ' / ' + CurrReport.PageCount"
             },
@@ -92,7 +93,7 @@
               "@Location": "145.520828,43.58003",
               "@Dpi": "254",
               "@Font": "Bahnschrift, 11pt",
-              "@BackColor": "Lime",
+              "@BackColor": "255,255,128,0",
               "@HorzAlign": "Center",
               "@SourceExpression": "CurrReport.Today"
             },
@@ -103,7 +104,7 @@
               "@Location": "878,43.58003",
               "@Dpi": "254",
               "@Font": "Bahnschrift, 11pt",
-              "@BackColor": "Lime",
+              "@BackColor": "255,255,128,0",
               "@HorzAlign": "Center",
               "@SourceExpression": "User.UserName"
             }
@@ -113,6 +114,7 @@
           "@ControlType": "DataItem",
           "@Name": "SalesHeader",
           "@Dpi": "254",
+          "@TotalColumns": "SalesHeader$Amount",
           "@TotalFields": "60",
           "@CalcFields": "Amount",
           "@Id": "2",
