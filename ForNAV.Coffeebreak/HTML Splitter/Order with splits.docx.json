@@ -1,0 +1,1342 @@
+{
+  "@ReportUnit": "TenthsOfAMillimeter",
+  "@Dpi": "254",
+  "@Font": "Segoe UI, 8pt",
+  "@Margins": "300, 100, 200, 200",
+  "@UsageCategory": "ReportsAndAnalysis",
+  "@ReqSaveValues": "true",
+  "@ObjectName": "Report 6188471",
+  "Bands": {
+    "Header": {
+      "@ControlType": "DataItem",
+      "@Name": "Header",
+      "@Dpi": "254",
+      "@TotalColumns": "Header$Amount,Header$AmountIncludingVAT",
+      "@TotalFields": "60,61",
+      "@CalcFields": "\"Amount Including VAT\", Amount",
+      "@ResetPageNumber": "true",
+      "@NewPagePerRecord": "true",
+      "@Id": "2",
+      "@GroupTotalFields": "\"3\"",
+      "@GroupTotalFieldNames": "\"No.\"",
+      "@ReqFilterFields": "\"No.\",\"Posting Date\"",
+      "@DataItemTableView": "SORTING(\"No.\") WHERE(\"Document Type\" = const(Order))",
+      "@DataItemVarName": "Header",
+      "@DataItemTable": "Table36",
+      "Bands": {
+        "PTEMyText": {
+          "@ControlType": "DataItem",
+          "@Name": "PTEMyText",
+          "@Dpi": "254",
+          "@Predeccessor": "Header",
+          "@Id": "1000000007",
+          "@IsVirtual": "true",
+          "@DataItemTableView": "WHERE(Code=CONST(TEST),Type=CONST(RBR))",
+          "@CustomDataItem": "CalcFieldsTableView",
+          "@DataItemTable": "Table50100",
+          "Bands": {
+            "ForNAVHTML2": {
+              "@ControlType": "DataItem",
+              "@Name": "ForNAVHTML2",
+              "@Dpi": "254",
+              "@CalcFields": "HTML",
+              "@Populate": "true",
+              "@Predeccessor": "PTEMyText",
+              "@Id": "1000000008",
+              "@IsVirtual": "true",
+              "@Temporary": "true",
+              "@DataItemTableView": "WHERE(\"HTML Source Type\"=CONST(1),\"Blob Field Number\"=CONST(3))",
+              "@CustomDataItem": "CalcFieldsTableView",
+              "@DataItemVarName": "ForNAVHTML2",
+              "@DataItemTable": "Table6188515",
+              "Bands": {
+                "PTEBody": {
+                  "@ControlType": "Body",
+                  "@Name": "PTEBody",
+                  "@Dpi": "254",
+                  "@Signature": "abc",
+                  "@CanGrow": "true",
+                  "@Height": "58.4200439",
+                  "Controls": {
+                    "TextBox7": {
+                      "@Name": "TextBox7",
+                      "@ControlType": "TextBox",
+                      "@Size": "1435.10413,58.4200439",
+                      "@Location": "267.229156,0",
+                      "@Dpi": "254",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@SourceExpression": "ForNAVHTML2.HTML",
+                      "@CanGrow": "true"
+                    },
+                    "TextBox6": {
+                      "@Name": "TextBox6",
+                      "@ControlType": "TextBox",
+                      "@Size": "254,58.42",
+                      "@Location": "0,0",
+                      "@Dpi": "254",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@SourceExpression": "ForNAVHTML2.EntryNo",
+                      "@CanGrow": "true"
+                    }
+                  }
+                }
+              },
+              "Fields": {
+                "EntryNo": {
+                  "@FieldName": "Entry No.",
+                  "@FieldNo": "1"
+                },
+                "HTML": {
+                  "@FieldName": "HTML",
+                  "@FieldNo": "2"
+                }
+              }
+            }
+          }
+        },
+        "ForNAVTextStorage": {
+          "@ControlType": "DataItem",
+          "@Name": "ForNAVTextStorage",
+          "@Dpi": "254",
+          "@CalcFields": "Text",
+          "@Populate": "true",
+          "@Predeccessor": "VATClause",
+          "@Id": "1000000005",
+          "@IsVirtual": "true",
+          "@Temporary": "true",
+          "@DataItemLink": "Language=FIELD(\"Language Code\")",
+          "@DataItemTableView": "WHERE(Code=CONST(Sales),Type=CONST(Test))",
+          "@CustomDataItem": "CalcFieldsTableView",
+          "@DataItemTable": "Table6189467",
+          "Bands": {
+            "ForNAVTextBody": {
+              "@ControlType": "Body",
+              "@Name": "ForNAVTextBody",
+              "@Dpi": "254",
+              "@Signature": "abc",
+              "@CanGrow": "true",
+              "@Height": "58.4200439",
+              "Controls": {
+                "TextBox2": {
+                  "@Name": "TextBox2",
+                  "@ControlType": "TextBox",
+                  "@Size": "254,58.42",
+                  "@Location": "2.333191,0",
+                  "@Dpi": "254",
+                  "@MultiLine": "true",
+                  "@VertAlign": "Top",
+                  "@HorzAlign": "Left",
+                  "@SourceExpression": "ForNAVTextStorage.Code",
+                  "@CanGrow": "true"
+                },
+                "TextBox1": {
+                  "@Name": "TextBox1",
+                  "@ControlType": "TextBox",
+                  "@Size": "1432.77063,58.4198837",
+                  "@Location": "267.229156,0",
+                  "@Dpi": "254",
+                  "@MultiLine": "true",
+                  "@VertAlign": "Top",
+                  "@HorzAlign": "Left",
+                  "@SourceExpression": "ForNAVTextStorage.Text",
+                  "@CanGrow": "true"
+                }
+              }
+            }
+          },
+          "Fields": {
+            "Code": {
+              "@FieldName": "Code",
+              "@FieldNo": "1"
+            },
+            "Language": {
+              "@FieldName": "Language",
+              "@FieldNo": "3"
+            },
+            "Text": {
+              "@FieldName": "Text",
+              "@FieldNo": "6"
+            }
+          }
+        },
+        "DocumentHeader": {
+          "@ControlType": "Header",
+          "@Name": "DocumentHeader",
+          "@BackColor": "Beige",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@MasterSection": "ForNAV Sales Template,DocumentHeader",
+          "@AllowScriptErrors": "true",
+          "@PrintOnEveryPage": "true",
+          "@Height": "830.0001",
+          "Controls": {
+            "Header_DueDate": {
+              "@Name": "Header_DueDate",
+              "@ControlType": "TextBox",
+              "@Size": "380.000244,59.99994",
+              "@Location": "1319.99988,679.9998",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "Black",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "Header.DueDate"
+            },
+            "CurrReport_StandardCaptions_Copy": {
+              "@Name": "CurrReport_StandardCaptions_Copy",
+              "@ControlType": "TextBox",
+              "@Size": "400,60",
+              "@Location": "0,560",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@SourceExpression": "CurrReport.StandardCaptions.Copy"
+            },
+            "Header_FieldLookups_PaymentTermsDescription": {
+              "@Name": "Header_FieldLookups_PaymentTermsDescription",
+              "@ControlType": "TextBox",
+              "@Size": "380,60.0001221",
+              "@Location": "1320,739.999756",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "Black",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "Header.FieldLookups.PaymentTermsDescription"
+            },
+            "Header_FieldLookups_PaymentTermsCaption": {
+              "@Name": "Header_FieldLookups_PaymentTermsCaption",
+              "@ControlType": "TextBox",
+              "@Size": "320.000061,60.00006",
+              "@Location": "1000,739.9999",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt, style=Bold",
+              "@ForeColor": "Black",
+              "@SourceExpression": "Header.FieldLookups.PaymentTermsCaption"
+            },
+            "Header_FieldCaptions_DueDate": {
+              "@Name": "Header_FieldCaptions_DueDate",
+              "@ControlType": "TextBox",
+              "@Size": "320.000061,60",
+              "@Location": "1000,679.9998",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt, style=Bold",
+              "@ForeColor": "Black",
+              "@SourceExpression": "Header.FieldCaptions.DueDate"
+            },
+            "Header_FieldCaptions_DocumentDate": {
+              "@Name": "Header_FieldCaptions_DocumentDate",
+              "@ControlType": "TextBox",
+              "@Size": "320,60",
+              "@Location": "1000,619.999939",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt, style=Bold",
+              "@ForeColor": "Black",
+              "@SourceExpression": "Header.FieldCaptions.DocumentDate"
+            },
+            "Header_FieldCaptions_OrderNo": {
+              "@Name": "Header_FieldCaptions_OrderNo",
+              "@ControlType": "TextBox",
+              "@Size": "320,60",
+              "@Location": "0,739.9999",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt, style=Bold",
+              "@ForeColor": "Black",
+              "@ShowOutput": "Header.OrderNo!=''",
+              "@SourceExpression": "Header.FieldCaptions.OrderNo"
+            },
+            "Header_FieldCaptions_VATRegistrationNo": {
+              "@Name": "Header_FieldCaptions_VATRegistrationNo",
+              "@ControlType": "TextBox",
+              "@Size": "320,60",
+              "@Location": "0,679.9998",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt, style=Bold",
+              "@ForeColor": "Black",
+              "@ShowOutput": "Header.VATRegistrationNo != ''",
+              "@SourceExpression": "Header.FieldCaptions.VATRegistrationNo"
+            },
+            "Header_FieldLookups_CustomerCaption": {
+              "@Name": "Header_FieldLookups_CustomerCaption",
+              "@ControlType": "TextBox",
+              "@Size": "320,60",
+              "@Location": "0,619.999939",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt, style=Bold",
+              "@ForeColor": "Black",
+              "@SourceExpression": "Header.FieldLookups.CustomerCaption"
+            },
+            "Header_FieldGroups_Bill_toAddress": {
+              "@Name": "Header_FieldGroups_Bill_toAddress",
+              "@ControlType": "TextBox",
+              "@Size": "400,220.003281",
+              "@Location": "0,159.996689",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "Black",
+              "@MultiLine": "true",
+              "@VertAlign": "Top",
+              "@HorzAlign": "Left",
+              "@SourceExpression": "Header.FieldGroups.Bill_toAddress",
+              "@CanGrow": "true"
+            },
+            "CompanyInformation_FieldGroups_Address": {
+              "@Name": "CompanyInformation_FieldGroups_Address",
+              "@ControlType": "TextBox",
+              "@Size": "400,220.003281",
+              "@Location": "1300.00012,159.996689",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "Black",
+              "@MultiLine": "true",
+              "@VertAlign": "Top",
+              "@ShowOutput": "CurrReport.PrintLogo(ForNAVSetup.UsePreprintedPaper)",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CompanyInformation.FieldGroups.Address"
+            },
+            "CurrReport_Caption": {
+              "@Name": "CurrReport_Caption",
+              "@ControlType": "TextBox",
+              "@Size": "1000,60",
+              "@Location": "0,500",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 10pt, style=Bold",
+              "@ForeColor": "Black",
+              "@HorzAlign": "Left",
+              "@SourceExpression": "CurrReport.Caption + ': ' + Header.No"
+            },
+            "CompanyInformation_Picture": {
+              "@Name": "CompanyInformation_Picture",
+              "@ControlType": "PictureBox",
+              "@Dpi": "254",
+              "@Size": "700,159.996658",
+              "@ShowOutput": "CurrReport.PrintLogo(ForNAVSetup.UsePreprintedPaper)",
+              "@SourceExpression": "ForNAVSetup.Logo",
+              "@HorzAlign": "Right",
+              "@Sizing": "ZoomImage",
+              "@Location": "1000,0"
+            },
+            "CurrReport_Page": {
+              "@Name": "CurrReport_Page",
+              "@ControlType": "TextBox",
+              "@Size": "200,60",
+              "@Location": "1500,500",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "Black",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.Page"
+            },
+            "Header_Bill_toCustomerNo": {
+              "@Name": "Header_Bill_toCustomerNo",
+              "@ControlType": "TextBox",
+              "@Size": "450,60",
+              "@Location": "320,619.999939",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "Black",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "Header.Bill_toCustomerNo"
+            },
+            "Header_FieldGroups_Bill_toAddress4": {
+              "@Name": "Header_FieldGroups_Bill_toAddress4",
+              "@ControlType": "TextBox",
+              "@Size": "450.000061,60",
+              "@Location": "320,679.9998",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "Black",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "Header.VATRegistrationNo"
+            },
+            "Header_FieldGroups_Bill_toAddress8": {
+              "@Name": "Header_FieldGroups_Bill_toAddress8",
+              "@ControlType": "TextBox",
+              "@Size": "449.9999,60.00006",
+              "@Location": "320.000183,740.000061",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "Black",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "Header.OrderNo"
+            },
+            "Header_DocumentDate": {
+              "@Name": "Header_DocumentDate",
+              "@ControlType": "TextBox",
+              "@Size": "380.000244,59.99994",
+              "@Location": "1319.99951,619.999939",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "Black",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "Header.DocumentDate"
+            }
+          }
+        },
+        "Footer": {
+          "@ControlType": "Footer",
+          "@Name": "Footer",
+          "@Dpi": "254",
+          "@BackColor": "Beige",
+          "@Padding": "0,0,0,0,254",
+          "@MasterSection": "ForNAV Sales Template,Footer",
+          "@PrintOnEveryPage": "true",
+          "@PlaceInBottom": "true",
+          "@Signature": "abc",
+          "@Height": "250",
+          "Controls": {
+            "Header_FieldGroups_Bill_toAddress6": {
+              "@Name": "Header_FieldGroups_Bill_toAddress6",
+              "@ControlType": "TextBox",
+              "@Size": "1700,140",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@MultiLine": "true",
+              "@ShowOutput": "CurrReport.PrintLogo(ForNAVSetup.UsePreprintedPaper)",
+              "@HorzAlign": "Center",
+              "@SourceExpression": [
+                "var joinFormat = ' : ';",
+                "CurrReport.JoinStrings(' | ',",
+                "CompanyInformation.FieldExtensions.PhoneNo.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.E_Mail.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.HomePage.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.VATRegistrationNo.Format(joinFormat),",
+                "BankAccount.FieldExtensions.IBAN.Format(joinFormat), ",
+                "BankAccount.FieldExtensions.SWIFTCode.Format(joinFormat))"
+              ]
+            },
+            "CompanyInformation_FieldGroups_Address2": {
+              "@Name": "CompanyInformation_FieldGroups_Address2",
+              "@ControlType": "TextBox",
+              "@Size": "1700,60",
+              "@Location": "0,190",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 6pt, style=Italic",
+              "@ShowOutput": "CurrReport.PrintLogo(ForNAVSetup.UsePreprintedPaper)",
+              "@HorzAlign": "Center",
+              "@SourceExpression": "ForNAVSetup.LegalConditions"
+            }
+          }
+        },
+        "Line": {
+          "@ControlType": "DataItem",
+          "@Name": "Line",
+          "@Dpi": "254",
+          "@TotalColumns": "Line$Amount",
+          "@TotalFields": "29",
+          "@Id": "3",
+          "@DataItemLink": "\"Document No.\" = FIELD(\"No.\"), \"Document Type\" = FIELD(\"Document Type\")",
+          "@DataItemLinkReference": "Header",
+          "@DataItemTableView": "SORTING(\"Document No.\", \"Line No.\")",
+          "@DataItemVarName": "Line",
+          "@DataItemTable": "Table37",
+          "Bands": {
+            "ForNAVHTML": {
+              "@ControlType": "DataItem",
+              "@Name": "ForNAVHTML",
+              "@Dpi": "254",
+              "@CalcFields": "HTML",
+              "@Populate": "true",
+              "@Predeccessor": "Line",
+              "@Id": "1000000006",
+              "@IsVirtual": "true",
+              "@Temporary": "true",
+              "@CustomDataItem": "CalcFields",
+              "@DataItemTable": "Table6188515",
+              "Bands": {
+                "EntityBody": {
+                  "@ControlType": "Body",
+                  "@Name": "EntityBody",
+                  "@Dpi": "254",
+                  "@Signature": "abc",
+                  "@CanGrow": "true",
+                  "@Height": "58.4200439",
+                  "Controls": {
+                    "TextBox4": {
+                      "@Name": "TextBox4",
+                      "@ControlType": "TextBox",
+                      "@Size": "254,58.42",
+                      "@Location": "0,0",
+                      "@Dpi": "254",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@SourceExpression": "ForNAVHTML.EntryNo",
+                      "@CanGrow": "true"
+                    },
+                    "TextBox3": {
+                      "@Name": "TextBox3",
+                      "@ControlType": "TextBox",
+                      "@Size": "1435.104,58.4200439",
+                      "@Location": "267.229156,0",
+                      "@Dpi": "254",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@SourceExpression": "ForNAVHTML.HTML",
+                      "@CanGrow": "true"
+                    }
+                  }
+                }
+              },
+              "Fields": {
+                "EntryNo": {
+                  "@FieldName": "Entry No.",
+                  "@FieldNo": "1"
+                },
+                "HTML": {
+                  "@FieldName": "HTML",
+                  "@FieldNo": "2"
+                }
+              }
+            },
+            "LinesBody": {
+              "@ControlType": "Body",
+              "@Name": "LinesBody",
+              "@BackColor": "Beige",
+              "@Dpi": "254",
+              "@Signature": "abc",
+              "@MasterSection": "ForNAV Sales Template,LinesBody",
+              "@CanGrow": "true",
+              "@Height": "60",
+              "Controls": {
+                "LinesTable": {
+                  "@Name": "LinesTable",
+                  "@ControlType": "Table",
+                  "@Size": "1700,60",
+                  "@Location": "2.33317566,0",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "LinesRow": {
+                      "@Name": "LinesRow",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "Cells": {
+                        "Line_No": {
+                          "@Name": "Line_No",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.59682747602293285",
+                          "@SourceExpression": "Line.No",
+                          "@VertAlign": "Top",
+                          "@HorzAlign": "Left",
+                          "@ShowOutput": "Line.GetOptionValue('Type') == 2"
+                        },
+                        "Line_Description": {
+                          "@Name": "Line_Description",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "2.586252311689746",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.Description",
+                          "@VertAlign": "Top",
+                          "@HorzAlign": "Left",
+                          "@CanGrow": "true"
+                        },
+                        "Line_Quantity": {
+                          "@Name": "Line_Quantity",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.59682747434681971",
+                          "@BlankZero": "true",
+                          "@SourceExpression": "Line.Quantity",
+                          "@VertAlign": "Top",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_UnitofMeasure": {
+                          "@Name": "Line_UnitofMeasure",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.59682750369681714",
+                          "@SourceExpression": "Line.UnitofMeasure",
+                          "@VertAlign": "Top",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_LineDiscountPct": {
+                          "@Name": "Line_LineDiscountPct",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.59682747368855438",
+                          "@BlankZero": "true",
+                          "@SourceExpression": "Line.LineDiscountPct",
+                          "@VertAlign": "Top",
+                          "@HorzAlign": "Right",
+                          "@ShowOutput": "DynamicsNavDataSet.HasDiscount"
+                        },
+                        "Line_UnitPrice": {
+                          "@Name": "Line_UnitPrice",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.59682747770915978",
+                          "@BlankZero": "true",
+                          "@SourceExpression": "Line.UnitPrice",
+                          "@VertAlign": "Top",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_Amount": {
+                          "@Name": "Line_Amount",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "1.1936550824200196",
+                          "@BlankZero": "true",
+                          "@SourceExpression": "Line.Amount",
+                          "@VertAlign": "Top",
+                          "@HorzAlign": "Right"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "LinesHeader": {
+              "@ControlType": "Header",
+              "@Name": "LinesHeader",
+              "@BackColor": "Beige",
+              "@Dpi": "254",
+              "@Signature": "abc",
+              "@MasterSection": "ForNAV Sales Template,LinesHeader",
+              "@Height": "110",
+              "Controls": {
+                "LinesHeaderTable": {
+                  "@Name": "LinesHeaderTable",
+                  "@ControlType": "Table",
+                  "@Size": "1700,100",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "@Borders": "Bottom",
+                  "Rows": {
+                    "LinesHeaderRow": {
+                      "@Name": "LinesHeaderRow",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "@AutoFit": "true",
+                      "Cells": {
+                        "Line_FieldCaptions_No_LinesHeader": {
+                          "@Name": "Line_FieldCaptions_No_LinesHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Borders": "Bottom",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "6.8042907956339436",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.No",
+                          "@VertAlign": "Bottom",
+                          "@HorzAlign": "Left"
+                        },
+                        "Line_FieldCaptions_Description_LinesHeader": {
+                          "@Name": "Line_FieldCaptions_Description_LinesHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "29.485258864392023",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.Description",
+                          "@VertAlign": "Bottom",
+                          "@HorzAlign": "Left"
+                        },
+                        "Line_FieldCaptions_Quantity_LinesHeader": {
+                          "@Name": "Line_FieldCaptions_Quantity_LinesHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "6.804290391100233",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.Quantity",
+                          "@VertAlign": "Bottom",
+                          "@CanShrink": "true",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_FieldCaptions_UnitOfMeasure_LinesHeader": {
+                          "@Name": "Line_FieldCaptions_UnitOfMeasure_LinesHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "6.8042906150612019",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.UnitofMeasure",
+                          "@VertAlign": "Bottom",
+                          "@CanShrink": "true",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_FieldCaptions_LineDiscountPct_LinesHeader": {
+                          "@Name": "Line_FieldCaptions_LineDiscountPct_LinesHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@ForeColor": "Black",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "6.8042905812143442",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.LineDiscountPct",
+                          "@VertAlign": "Bottom",
+                          "@HorzAlign": "Right",
+                          "@ShowOutput": "DynamicsNavDataSet.HasDiscount"
+                        },
+                        "Line_FieldCaptions_UnitPrice_LinesHeader": {
+                          "@Name": "Line_FieldCaptions_UnitPrice_LinesHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@ForeColor": "Black",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "6.8042905046477546",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.UnitPrice",
+                          "@VertAlign": "Bottom",
+                          "@CanShrink": "true",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_FieldCaptions_Amount_LinesHeader_LinesHeader": {
+                          "@Name": "Line_FieldCaptions_Amount_LinesHeader_LinesHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "13.608581111821286",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.Amount + ' (' + Header.FieldLookups.CurrencyCode + ')'",
+                          "@VertAlign": "Bottom",
+                          "@HorzAlign": "Right"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "TransHeader": {
+              "@ControlType": "TransHeader",
+              "@Name": "TransHeader",
+              "@Dpi": "254",
+              "@BackColor": "Beige",
+              "@MasterSection": "ForNAV Sales Template,TransHeader",
+              "@Signature": "abc",
+              "@Height": "160",
+              "Controls": {
+                "TransHeaderTable": {
+                  "@Name": "TransHeaderTable",
+                  "@ControlType": "Table",
+                  "@Size": "1700,100",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "@Borders": "Bottom",
+                  "Rows": {
+                    "TransHeaderRow": {
+                      "@Name": "TransHeaderRow",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "@AutoFit": "true",
+                      "Cells": {
+                        "Line_FieldCaptions_No_TransHeader": {
+                          "@Name": "Line_FieldCaptions_No_TransHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "6.8042901034657159",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.No",
+                          "@VertAlign": "Bottom",
+                          "@HorzAlign": "Left"
+                        },
+                        "Line_FieldCaptions_Description_TransHeader": {
+                          "@Name": "Line_FieldCaptions_Description_TransHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "29.485256787887341",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.Description",
+                          "@VertAlign": "Bottom",
+                          "@HorzAlign": "Left"
+                        },
+                        "Line_FieldCaptions_Quantity_TransHeader": {
+                          "@Name": "Line_FieldCaptions_Quantity_TransHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "6.804290391100233",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.Quantity",
+                          "@VertAlign": "Bottom",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_FieldCaptions_UnitofMeasure_TransHeader": {
+                          "@Name": "Line_FieldCaptions_UnitofMeasure_TransHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "6.804290615061201",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.UnitofMeasure",
+                          "@VertAlign": "Bottom",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_FieldCaptions_LineDiscountPct_TransHeader": {
+                          "@Name": "Line_FieldCaptions_LineDiscountPct_TransHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@ForeColor": "Black",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "6.804290581214345",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.LineDiscountPct",
+                          "@VertAlign": "Bottom",
+                          "@HorzAlign": "Right",
+                          "@ShowOutput": "DynamicsNavDataSet.HasDiscount"
+                        },
+                        "Line_FieldCaptions_UnitPrice_TransHeader": {
+                          "@Name": "Line_FieldCaptions_UnitPrice_TransHeader",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@ForeColor": "Black",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "6.8042905046477546",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.UnitPrice",
+                          "@VertAlign": "Bottom",
+                          "@CanShrink": "true",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_No0": {
+                          "@Name": "Line_No0",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "13.608583880494196",
+                          "@MultiLine": "true",
+                          "@SourceExpression": "Line.FieldCaptions.Amount + ' (' + Header.FieldLookups.CurrencyCode + ')'",
+                          "@VertAlign": "Bottom",
+                          "@HorzAlign": "Right"
+                        }
+                      }
+                    }
+                  }
+                },
+                "Continued_Header_Amount": {
+                  "@Name": "Continued_Header_Amount",
+                  "@ControlType": "TextBox",
+                  "@Size": "299.999878,60",
+                  "@Location": "1400.00012,100",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt, style=Italic",
+                  "@HorzAlign": "Right",
+                  "@SourceExpression": "Line.Amount"
+                },
+                "Continued_Header_Caption": {
+                  "@Name": "Continued_Header_Caption",
+                  "@ControlType": "TextBox",
+                  "@Size": "150,60",
+                  "@Location": "1250,100",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt, style=Bold, Italic",
+                  "@SourceExpression": "CurrReport.StandardCaptions.Continued"
+                }
+              }
+            },
+            "TransFooter": {
+              "@ControlType": "TransFooter",
+              "@Name": "TransFooter",
+              "@Dpi": "254",
+              "@BackColor": "Beige",
+              "@MasterSection": "ForNAV Sales Template,TransFooter",
+              "@Signature": "abc",
+              "@Height": "90.06427",
+              "Controls": {
+                "CompanyInformation_FieldGroups_Address4": {
+                  "@Name": "CompanyInformation_FieldGroups_Address4",
+                  "@ControlType": "TextBox",
+                  "@Size": "150,60",
+                  "@Location": "1250,0",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt, style=Bold, Italic",
+                  "@SourceExpression": "CurrReport.StandardCaptions.Continued"
+                },
+                "CompanyInformation_FieldGroups_Address3": {
+                  "@Name": "CompanyInformation_FieldGroups_Address3",
+                  "@ControlType": "TextBox",
+                  "@Size": "300,60",
+                  "@Location": "1400,0",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt, style=Italic",
+                  "@HorzAlign": "Right",
+                  "@SourceExpression": "Line.Amount"
+                }
+              }
+            },
+            "LinesFooter": {
+              "@ControlType": "Footer",
+              "@Name": "LinesFooter",
+              "@Dpi": "254",
+              "@BackColor": "Beige",
+              "@MasterSection": "ForNAV Sales Template,LinesFooter",
+              "@Signature": "abc",
+              "@Height": "205.000092",
+              "Controls": {
+                "TextBox5": {
+                  "@Name": "TextBox5",
+                  "@ControlType": "TextBox",
+                  "@Size": "1100,60.0002136",
+                  "@Location": "0,144.999878",
+                  "@Dpi": "254",
+                  "@Font": "Arial, 9pt, style=Italic",
+                  "@SourceExpression": "ForNAVSetup.PaymentNote"
+                },
+                "Shape2": {
+                  "@Name": "Shape2",
+                  "@ControlType": "Shape",
+                  "@Size": "1700,5",
+                  "@Location": "0,10",
+                  "@ShapeType": "HorzLine",
+                  "@Angle": "90",
+                  "@Stretch": "true",
+                  "@Dpi": "254",
+                  "Shape": {
+                    "@ShapeName": "Line"
+                  }
+                },
+                "CurrReport_Caption6": {
+                  "@Name": "CurrReport_Caption6",
+                  "@ControlType": "TextBox",
+                  "@Size": "299.999878,60",
+                  "@Location": "1399.99976,24.9999275",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt, style=Bold",
+                  "@SourceExpression": "Header.Amount"
+                },
+                "CurrReport_Caption8": {
+                  "@Name": "CurrReport_Caption8",
+                  "@ControlType": "TextBox",
+                  "@Size": "300,60",
+                  "@Location": "1399.99976,84.99982",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt",
+                  "@SourceExpression": "Header.AmountIncludingVAT-Header.Amount"
+                },
+                "CurrReport_Caption7": {
+                  "@Name": "CurrReport_Caption7",
+                  "@ControlType": "TextBox",
+                  "@Size": "300,60",
+                  "@Location": "1100,24.9999275",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt, style=Bold",
+                  "@SourceExpression": "CurrReport.StandardCaptions.SubTotal"
+                },
+                "CurrReport_Caption9": {
+                  "@Name": "CurrReport_Caption9",
+                  "@ControlType": "TextBox",
+                  "@Size": "300,60",
+                  "@Location": "1100,145.000031",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt, style=Bold",
+                  "@Borders": "Bottom",
+                  "@SourceExpression": "CurrReport.StandardCaptions.Total + ' (' + Header.FieldLookups.CurrencyCode + ')'"
+                },
+                "CompanyInformation_FieldGroups_Address0": {
+                  "@Name": "CompanyInformation_FieldGroups_Address0",
+                  "@ControlType": "TextBox",
+                  "@Size": "300,60",
+                  "@Location": "1399.99976,145.000031",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt, style=Bold",
+                  "@Borders": "Bottom",
+                  "@SourceExpression": "Header.AmountIncludingVAT"
+                },
+                "CompanyInformation_FieldGroups_Address1": {
+                  "@Name": "CompanyInformation_FieldGroups_Address1",
+                  "@ControlType": "TextBox",
+                  "@Size": "300.000244,60",
+                  "@Location": "1100,84.99982",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt",
+                  "@SourceExpression": "CurrReport.StandardCaptions.TaxAmount + (DynamicsNavDataSet.SingleVATPct == 0 ? '' : ' ' + DynamicsNavDataSet.SingleVATPct + '%')"
+                }
+              }
+            }
+          },
+          "Fields": {
+            "DocumentNo": {
+              "@FieldName": "Document No.",
+              "@FieldNo": "3"
+            },
+            "LineNo": {
+              "@FieldName": "Line No.",
+              "@FieldNo": "4"
+            },
+            "Amount": {
+              "@FieldName": "Amount",
+              "@FieldNo": "29"
+            }
+          }
+        },
+        "VATAmountLine": {
+          "@ControlType": "DataItem",
+          "@Name": "VATAmountLine",
+          "@Dpi": "254",
+          "@TotalColumns": "VATAmountLine$VATPct,VATAmountLine$LineAmount,VATAmountLine$VATAmount,VATAmountLine$VATBase",
+          "@TotalFields": "1,6,3,2",
+          "@Id": "1000000001",
+          "@Temporary": "true",
+          "@DataItemTableView": "SORTING(\"VAT Identifier\", \"VAT Calculation Type\", \"Tax Group Code\", \"Use Tax\", Positive)",
+          "@DataItemVarName": "VATAmountLine",
+          "@DataItemTable": "Table290",
+          "Bands": {
+            "VATBody": {
+              "@ControlType": "Body",
+              "@Name": "VATBody",
+              "@BackColor": "Beige",
+              "@Dpi": "254",
+              "@Signature": "abc",
+              "@MasterSection": "ForNAV Sales Template,VATBody",
+              "@Height": "60",
+              "Controls": {
+                "table5": {
+                  "@Name": "table5",
+                  "@ControlType": "Table",
+                  "@Size": "1700,60",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "tableRow5": {
+                      "@Name": "tableRow5",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "Cells": {
+                        "Line_No5": {
+                          "@Name": "Line_No5",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.47388059701492535",
+                          "@SourceExpression": "VATAmountLine.VATIdentifier"
+                        },
+                        "Line_No6": {
+                          "@Name": "Line_No6",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.47388059701492535",
+                          "@SourceExpression": "VATAmountLine.VATPct"
+                        },
+                        "Line_No7": {
+                          "@Name": "Line_No7",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.47388059701492535",
+                          "@SourceExpression": "VATAmountLine.LineAmount"
+                        },
+                        "Line_No8": {
+                          "@Name": "Line_No8",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.47388059701492535",
+                          "@SourceExpression": "VATAmountLine.VATAmount"
+                        },
+                        "Line_No9": {
+                          "@Name": "Line_No9",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.47388059701492535",
+                          "@SourceExpression": "VATAmountLine.VATBase"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "VATHeader": {
+              "@ControlType": "Header",
+              "@Name": "VATHeader",
+              "@BackColor": "Beige",
+              "@Dpi": "254",
+              "@Signature": "abc",
+              "@MasterSection": "ForNAV Sales Template,VATHeader",
+              "@Height": "70",
+              "Controls": {
+                "table6": {
+                  "@Name": "table6",
+                  "@ControlType": "Table",
+                  "@Size": "1700,60",
+                  "@Location": "0,10",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "tableRow6": {
+                      "@Name": "tableRow6",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "Cells": {
+                        "Line_Description0": {
+                          "@Name": "Line_Description0",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Borders": "Bottom",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "0.47388059701492535",
+                          "@SourceExpression": "VATAmountLine.FieldCaptions.VATIdentifier"
+                        },
+                        "Line_Description1": {
+                          "@Name": "Line_Description1",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Borders": "Bottom",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "0.47388059701492535",
+                          "@SourceExpression": "VATAmountLine.FieldCaptions.VATPct",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_Description2": {
+                          "@Name": "Line_Description2",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Borders": "Bottom",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "0.47388059701492535",
+                          "@SourceExpression": "VATAmountLine.FieldCaptions.LineAmount",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_Description3": {
+                          "@Name": "Line_Description3",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Borders": "Bottom",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "0.47388059701492535",
+                          "@SourceExpression": "VATAmountLine.FieldCaptions.VATAmount",
+                          "@HorzAlign": "Right"
+                        },
+                        "Line_Description4": {
+                          "@Name": "Line_Description4",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Borders": "Bottom",
+                          "@Font": "Segoe UI, 8pt, style=Bold",
+                          "@Weight": "0.47388059701492535",
+                          "@SourceExpression": "VATAmountLine.FieldCaptions.VATBase",
+                          "@HorzAlign": "Right"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "VATFooter": {
+              "@ControlType": "Footer",
+              "@Name": "VATFooter",
+              "@Dpi": "254",
+              "@BackColor": "Beige",
+              "@MasterSection": "ForNAV Sales Template,VATFooter",
+              "@Signature": "abc",
+              "@Height": "60",
+              "Controls": {
+                "table7": {
+                  "@Name": "table7",
+                  "@ControlType": "Table",
+                  "@Size": "1700,60",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "tableRow7": {
+                      "@Name": "tableRow7",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "Cells": {
+                        "tableCell1": {
+                          "@Name": "tableCell1",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Borders": "Top",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.94653669740502477"
+                        },
+                        "Line_Description7": {
+                          "@Name": "Line_Description7",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Borders": "Top, Bottom",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.47326838354421652",
+                          "@SourceExpression": "VATAmountLine.LineAmount"
+                        },
+                        "Line_Description8": {
+                          "@Name": "Line_Description8",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Borders": "Top, Bottom",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.47326838354421646",
+                          "@SourceExpression": "VATAmountLine.VATAmount"
+                        },
+                        "Line_Description9": {
+                          "@Name": "Line_Description9",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Borders": "Top, Bottom",
+                          "@Font": "Segoe UI, 8pt",
+                          "@Weight": "0.47326838354421652",
+                          "@SourceExpression": "VATAmountLine.VATBase"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Fields": {
+            "VATPct": {
+              "@FieldName": "VAT %",
+              "@FieldNo": "1"
+            },
+            "VATBase": {
+              "@FieldName": "VAT Base",
+              "@FieldNo": "2"
+            },
+            "VATAmount": {
+              "@FieldName": "VAT Amount",
+              "@FieldNo": "3"
+            },
+            "VATIdentifier": {
+              "@FieldName": "VAT Identifier",
+              "@FieldNo": "5"
+            },
+            "LineAmount": {
+              "@FieldName": "Line Amount",
+              "@FieldNo": "6"
+            },
+            "VATCalculationType": {
+              "@FieldName": "VAT Calculation Type",
+              "@FieldNo": "9"
+            },
+            "TaxGroupCode": {
+              "@FieldName": "Tax Group Code",
+              "@FieldNo": "10"
+            },
+            "UseTax": {
+              "@FieldName": "Use Tax",
+              "@FieldNo": "13"
+            },
+            "Positive": {
+              "@FieldName": "Positive",
+              "@FieldNo": "16"
+            }
+          }
+        },
+        "VATClause": {
+          "@ControlType": "DataItem",
+          "@Name": "VATClause",
+          "@Dpi": "254",
+          "@Id": "1000000002",
+          "@Temporary": "true",
+          "@DataItemTableView": "SORTING(Code)",
+          "@DataItemVarName": "VATClause",
+          "@DataItemTable": "Table560",
+          "Bands": {
+            "VATClauseBody": {
+              "@ControlType": "Body",
+              "@Name": "VATClauseBody",
+              "@BackColor": "Beige",
+              "@Dpi": "254",
+              "@Signature": "abc",
+              "@MasterSection": "ForNAV Sales Template,VATClauseBody",
+              "@Height": "60",
+              "Controls": {
+                "Header_FieldGroups_Bill_toAddress1": {
+                  "@Name": "Header_FieldGroups_Bill_toAddress1",
+                  "@ControlType": "TextBox",
+                  "@Size": "1700,60",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "@Font": "Segoe UI, 8pt, style=Italic",
+                  "@HorzAlign": "Center",
+                  "@SourceExpression": "VATClause.Description + ' ' + VATClause.Description2"
+                }
+              }
+            }
+          },
+          "Fields": {
+            "Code": {
+              "@FieldName": "Code",
+              "@FieldNo": "1"
+            }
+          }
+        }
+      },
+      "Fields": {
+        "No": {
+          "@FieldName": "No.",
+          "@FieldNo": "3"
+        },
+        "LanguageCode": {
+          "@FieldName": "Language Code",
+          "@FieldNo": "41"
+        },
+        "FormatRegion": {
+          "@FieldName": "Format Region",
+          "@FieldNo": "42"
+        },
+        "Amount": {
+          "@FieldName": "Amount",
+          "@FieldNo": "60"
+        },
+        "AmountIncludingVAT": {
+          "@FieldName": "Amount Including VAT",
+          "@FieldNo": "61"
+        }
+      }
+    },
+    "topMarginBand1": {
+      "@Name": "topMarginBand1",
+      "@ControlType": "TopMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    },
+    "bottomMarginBand1": {
+      "@Name": "bottomMarginBand1",
+      "@ControlType": "BottomMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    }
+  },
+  "Records": {
+    "CompanyInformation": {
+      "@Table": "Company Information",
+      "@No": "79",
+      "@Name": "CompanyInformation"
+    },
+    "ForNAVSetup": {
+      "@Table": "ForNAV Setup",
+      "@No": "6188471",
+      "@Name": "ForNAVSetup",
+      "@CalcFields": "Logo"
+    },
+    "BankAccount": {
+      "@Table": "Bank Account",
+      "@No": "270",
+      "@Name": "BankAccount",
+      "@Temporary": "true",
+      "@DataItemLinkReference": "Header",
+      "Fields": {
+        "FormatRegion": {
+          "@FieldName": "Format Region",
+          "@FieldNo": "25"
+        }
+      }
+    }
+  },
+  "DesignerOptions": {
+    "@ShowExportWarnings": "false"
+  }
+}
