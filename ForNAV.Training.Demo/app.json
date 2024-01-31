@@ -2,7 +2,7 @@
   "id": "cdf94b0b-d67b-4fdb-8197-73abb63bef54",
   "name": "ForNAV Training Demo",
   "publisher": "ForNAV",
-  "version": "19.0.0.0",
+  "version": "23.0.0.0",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -13,8 +13,8 @@
   "dependencies": [
   ],
   "screenshots": [],
-  "platform": "19.0.0.0",
-  "application": "19.0.0.0",
+  "platform": "23.0.0.0",
+  "application": "23.0.0.0",
   "idRanges": [
     {
       "from": 70630,
@@ -27,5 +27,5 @@
     "allowDownloadingSource": false,
     "includeSourceInSymbolFile": false
   },
-  "runtime": "8.0"
+  "runtime": "12.0"
 }
