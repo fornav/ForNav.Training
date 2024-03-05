@@ -11,7 +11,7 @@ table 50150 "ForNAV Local File"
             DataClassification = OrganizationIdentifiableInformation;
             Caption = 'Alias';
         }
-        field(2; Filename; Text[250])
+        field(2; Filename; Text[2048])
         {
             DataClassification = OrganizationIdentifiableInformation;
             Caption = 'Filename';
