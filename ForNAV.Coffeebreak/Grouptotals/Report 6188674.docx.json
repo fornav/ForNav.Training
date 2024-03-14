@@ -1,0 +1,812 @@
+{
+  "@ReportUnit": "TenthsOfAMillimeter",
+  "@Dpi": "254",
+  "@Font": "Segoe UI, 8pt",
+  "@Margins": "200, 200, 200, 200",
+  "@UsageCategory": "ReportsAndAnalysis",
+  "@ObjectName": "Report 6188674",
+  "@OnPreReportScript": "var groupcounter = 0",
+  "Bands": {
+    "List": {
+      "@ControlType": "DataItem",
+      "@Name": "List",
+      "@Dpi": "254",
+      "@TotalFields": "59",
+      "@CalcFields": "\"Balance (LCY)\", \"Net Change (LCY)\"",
+      "@Id": "2",
+      "@OnAfterGetRecordScript": "groupcounter += 1",
+      "@GroupTotalFields": "21,27",
+      "@GroupTotalFieldNames": "\"Customer Posting Group\",\"Payment Terms Code\"",
+      "@ReqFilterFields": "\"No.\",Name,\"Customer Posting Group\",\"Country/Region Code\",\"Date Filter\"",
+      "@DataItemTableView": "SORTING(\"Customer Posting Group\",\"Payment Terms Code\")",
+      "@CustomDataItem": "TableViewTotalFields",
+      "@DataItemVarName": "List",
+      "@DataItemTable": "Table18",
+      "Bands": {
+        "MasterHeader": {
+          "@ControlType": "Header",
+          "@Name": "MasterHeader",
+          "@BackColor": "Beige",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@MasterSection": "ForNAV Template,MasterHeader",
+          "@PrintOnEveryPage": "true",
+          "@Height": "220",
+          "Controls": {
+            "UserIdTextBox": {
+              "@Name": "UserIdTextBox",
+              "@ControlType": "TextBox",
+              "@Size": "1000,60",
+              "@Location": "0,119.999939",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@HorzAlign": "Left",
+              "@SourceExpression": "CurrReport.UserId"
+            },
+            "ExecutionTimeTextBox": {
+              "@Name": "ExecutionTimeTextBox",
+              "@ControlType": "TextBox",
+              "@Size": "400,59.99997",
+              "@Location": "0,59.99997",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@HorzAlign": "Left",
+              "@SourceExpression": "CurrReport.Today"
+            },
+            "CompanyInformation_Picture": {
+              "@Name": "CompanyInformation_Picture",
+              "@ControlType": "PictureBox",
+              "@Dpi": "254",
+              "@Size": "700,159.996658",
+              "@SourceExpression": "ForNAVSetup.Logo",
+              "@HorzAlign": "Right",
+              "@Sizing": "ZoomImage",
+              "@Location": "1000,0"
+            },
+            "CurrReport_Caption": {
+              "@Name": "CurrReport_Caption",
+              "@ControlType": "TextBox",
+              "@Size": "1000,60",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt, style=Bold",
+              "@ForeColor": "Black",
+              "@HorzAlign": "Left",
+              "@SourceExpression": "CurrReport.Caption"
+            },
+            "CurrReport_Page": {
+              "@Name": "CurrReport_Page",
+              "@ControlType": "TextBox",
+              "@Size": "700.0001,60.0000153",
+              "@Location": "1000,159.996689",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "Black",
+              "@Borders": "Bottom",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.Page"
+            }
+          }
+        },
+        "Footer1": {
+          "@ControlType": "Footer",
+          "@Name": "Footer1",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@Height": "158.96167",
+          "Controls": {
+            "TextBox9": {
+              "@Name": "TextBox9",
+              "@ControlType": "TextBox",
+              "@Size": "254,158.96167",
+              "@Location": "1446.00024,0",
+              "@Dpi": "254",
+              "@BackColor": "Aqua",
+              "@SourceExpression": "List.Balance_LCY"
+            }
+          }
+        },
+        "MasterFooter": {
+          "@ControlType": "Footer",
+          "@Name": "MasterFooter",
+          "@Dpi": "254",
+          "@BackColor": "Beige",
+          "@MasterSection": "ForNAV Template,MasterFooter",
+          "@PrintOnEveryPage": "true",
+          "@PlaceInBottom": "true",
+          "@Signature": "abc",
+          "@Height": "140",
+          "Controls": {
+            "Header_FieldGroups_Pay_toAddress6": {
+              "@Name": "Header_FieldGroups_Pay_toAddress6",
+              "@ControlType": "TextBox",
+              "@Size": "1700,140",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 7pt",
+              "@Borders": "Top",
+              "@MultiLine": "true",
+              "@HorzAlign": "Center",
+              "@SourceExpression": [
+                "var joinFormat = ' : ';",
+                "CurrReport.JoinStrings(' | ',",
+                "CompanyInformation.FieldExtensions.PhoneNo.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.E_Mail.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.HomePage.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.VATRegistrationNo.Format(joinFormat),",
+                "CompanyInformation.FieldExtensions.IBAN.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.SWIFTCode.Format(joinFormat))",
+                ""
+              ]
+            }
+          }
+        },
+        "Body": {
+          "@ControlType": "Body",
+          "@Name": "Body",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@Height": "60",
+          "Controls": {
+            "BodyTable": {
+              "@Name": "BodyTable",
+              "@ControlType": "Table",
+              "@Size": "1700,60",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@OddStyleName": "Gainsboro",
+              "Rows": {
+                "BodyRow": {
+                  "@Name": "BodyRow",
+                  "@ControlType": "TableRow",
+                  "@Dpi": "254",
+                  "@OddStyleName": "Gainsboro",
+                  "@Weight": "0.5679012345679012",
+                  "Cells": {
+                    "NoValue": {
+                      "@Name": "NoValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.48461483825406448",
+                      "@SourceExpression": "List.No",
+                      "@HorzAlign": "Left"
+                    },
+                    "CustomerPostingGroupValue": {
+                      "@Name": "CustomerPostingGroupValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.48461479498792948",
+                      "@SourceExpression": "List.CustomerPostingGroup"
+                    },
+                    "InvoiceDiscCodeValue": {
+                      "@Name": "InvoiceDiscCodeValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.48461479498792953",
+                      "@SourceExpression": "List.InvoiceDiscCode"
+                    },
+                    "CustomerPriceGroupValue": {
+                      "@Name": "CustomerPriceGroupValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.36346094722190403",
+                      "@SourceExpression": "List.CustomerPriceGroup"
+                    },
+                    "FinChargeTermsCodeValue": {
+                      "@Name": "FinChargeTermsCodeValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.36346124300730409",
+                      "@SourceExpression": "List.FinChargeTermsCode"
+                    },
+                    "PaymentTermsCodeValue": {
+                      "@Name": "PaymentTermsCodeValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.36346109511460412",
+                      "@SourceExpression": "List.PaymentTermsCode"
+                    },
+                    "SalespersonCodeValue": {
+                      "@Name": "SalespersonCodeValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.24230769102667868",
+                      "@SourceExpression": "List.SalespersonCode"
+                    },
+                    "CurrencyCodeValue": {
+                      "@Name": "CurrencyCodeValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.24230709945587847",
+                      "@SourceExpression": "List.CurrencyCode"
+                    },
+                    "CreditLimitValue": {
+                      "@Name": "CreditLimitValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.36346109511460406",
+                      "@BlankZero": "true",
+                      "@SourceExpression": "List.CreditLimit_LCY"
+                    },
+                    "BalanceValue": {
+                      "@Name": "BalanceValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.363461098261084",
+                      "@SourceExpression": "List.Balance_LCY"
+                    },
+                    "NetChangeValue": {
+                      "@Name": "NetChangeValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.36346109826108408",
+                      "@BlankZero": "true",
+                      "@SourceExpression": "List.NetChange_LCY"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Header": {
+          "@ControlType": "Header",
+          "@Name": "Header",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@CanGrow": "true",
+          "@Height": "60",
+          "Controls": {
+            "HeaderTable": {
+              "@Name": "HeaderTable",
+              "@ControlType": "Table",
+              "@Size": "1700,60",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@CanGrow": "true",
+              "Rows": {
+                "HeaderRow": {
+                  "@Name": "HeaderRow",
+                  "@ControlType": "TableRow",
+                  "@Dpi": "254",
+                  "@Weight": "0.5679012345679012",
+                  "@CanGrow": "true",
+                  "Cells": {
+                    "NoHeader": {
+                      "@Name": "NoHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.36713238838488216",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldCaptions.No+'/\\u00AD'+List.FieldCaptions.Name",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    },
+                    "CustomerPostingGroupHeader": {
+                      "@Name": "CustomerPostingGroupHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.3671323901489375",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldCaptions.CustomerPostingGroup",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    },
+                    "InvoiceDiscCodeHeader": {
+                      "@Name": "InvoiceDiscCodeHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.36713239187781588",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldCaptions.InvoiceDiscCode",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    },
+                    "CustomerPriceGroupHeader": {
+                      "@Name": "CustomerPriceGroupHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.27534928263074809",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldCaptions.CustomerPriceGroup",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    },
+                    "FinanceChargeTermsHeader": {
+                      "@Name": "FinanceChargeTermsHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.27534929477899295",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldLookups.FinanceChargeTermsCaption",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    },
+                    "PaymentTermsHeader": {
+                      "@Name": "PaymentTermsHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.27534929135519703",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldLookups.PaymentTermsCaption",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    },
+                    "SalesPersonHeader": {
+                      "@Name": "SalesPersonHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.18356619830867807",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldCaptions.SalespersonCode",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    },
+                    "CurrencyHeader": {
+                      "@Name": "CurrencyHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.1835661964160602",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldLookups.CurrencyCaption",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    },
+                    "CreditLimitHeader": {
+                      "@Name": "CreditLimitHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.27534929467572444",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldCaptions.CreditLimit_LCY",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    },
+                    "BalanceHeader": {
+                      "@Name": "BalanceHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.27534929912328088",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldCaptions.Balance_LCY",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    },
+                    "NetChangeHeader": {
+                      "@Name": "NetChangeHeader",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.27534931312827016",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldCaptions.NetChange_LCY",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Address": {
+          "@ControlType": "Body",
+          "@Name": "Address",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@CanGrow": "true",
+          "@Height": "60",
+          "Controls": {
+            "AddressTable": {
+              "@Name": "AddressTable",
+              "@ControlType": "Table",
+              "@Size": "1700,60",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "Rows": {
+                "AddressRow": {
+                  "@Name": "AddressRow",
+                  "@ControlType": "TableRow",
+                  "@Dpi": "254",
+                  "@OddStyleName": "Gainsboro",
+                  "@Weight": "0.5679012345679012",
+                  "Cells": {
+                    "NameValue": {
+                      "@Name": "NameValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "2.0374330255437023",
+                      "@SourceExpression": "List.Name"
+                    },
+                    "AddressValue": {
+                      "@Name": "AddressValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "1.782753725714862",
+                      "@SourceExpression": "List.Address"
+                    },
+                    "CityValue": {
+                      "@Name": "CityValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "1.5280757471584381",
+                      "@SourceExpression": "List.City"
+                    },
+                    "PostCodeValue": {
+                      "@Name": "PostCodeValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "1.0187157485064338",
+                      "@SourceExpression": "List.PostCode"
+                    },
+                    "CountryRegionCodeValue": {
+                      "@Name": "CountryRegionCodeValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "0.84893084398565444",
+                      "@SourceExpression": "List.Country_RegionCode"
+                    },
+                    "CountyValue": {
+                      "@Name": "CountyValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Bold",
+                      "@Weight": "1.4431818181818181",
+                      "@SourceExpression": "List.County"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Contact": {
+          "@ControlType": "Body",
+          "@Name": "Contact",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@ShowOutput": "List.Contact != ''",
+          "@Height": "60",
+          "Controls": {
+            "ContactTable": {
+              "@Name": "ContactTable",
+              "@ControlType": "Table",
+              "@Size": "1699.99988,60",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "Rows": {
+                "ContactRow": {
+                  "@Name": "ContactRow",
+                  "@ControlType": "TableRow",
+                  "@Dpi": "254",
+                  "@OddStyleName": "Gainsboro",
+                  "@Weight": "0.5679012345679012",
+                  "Cells": {
+                    "ContactValue": {
+                      "@Name": "ContactValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt, style=Italic",
+                      "@Weight": "0.23830228235126194",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "List.FieldLookups.ContactCaption + ' : ' + List.Contact",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "PhoneNoAndEmail": {
+          "@ControlType": "Body",
+          "@Name": "PhoneNoAndEmail",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@ShowOutput": "List.PhoneNo + List.E_Mail != ''",
+          "@Height": "60",
+          "Controls": {
+            "PhoneAndEmailTable": {
+              "@Name": "PhoneAndEmailTable",
+              "@ControlType": "Table",
+              "@Size": "1699.99988,60",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "Rows": {
+                "PhoneAndEmailRow": {
+                  "@Name": "PhoneAndEmailRow",
+                  "@ControlType": "TableRow",
+                  "@Dpi": "254",
+                  "@OddStyleName": "Gainsboro",
+                  "@Weight": "0.5679012345679012",
+                  "Cells": {
+                    "PhoneAndEmailValue": {
+                      "@Name": "PhoneAndEmailValue",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Font": "Segoe UI, 8pt",
+                      "@Weight": "0.23830228235126194",
+                      "@MultiLine": "true",
+                      "@SourceExpression": [
+                        "[List.PhoneNo  != '' ? List.FieldCaptions.PhoneNo + ' : ' + List.PhoneNo  : null, ",
+                        "List.E_Mail != '' ? List.FieldCaptions.E_Mail + ' : ' + List.E_Mail : null].",
+                        "filter(function (val) {return val;}).join(' | ')"
+                      ],
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "GroupHeader3": {
+          "@ControlType": "GroupHeader",
+          "@Name": "GroupHeader3",
+          "@Dpi": "254",
+          "@GroupTotalFieldNo": "21",
+          "@Signature": "abc",
+          "@ShowOutput": "groupcounter > 1",
+          "@Height": "58.42",
+          "Controls": {
+            "TextBox7": {
+              "@Name": "TextBox7",
+              "@ControlType": "TextBox",
+              "@Size": "254,58.42",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@BackColor": "255,255,128,255",
+              "@SourceExpression": [
+                "CurrReport.NewPage()",
+                "groupcounter"
+              ]
+            }
+          }
+        },
+        "GroupHeader1": {
+          "@ControlType": "GroupHeader",
+          "@Name": "GroupHeader1",
+          "@Dpi": "254",
+          "@GroupTotalFieldNo": "21",
+          "@Signature": "abc",
+          "@Height": "58.42",
+          "Controls": {
+            "TextBox1": {
+              "@Name": "TextBox1",
+              "@ControlType": "TextBox",
+              "@Size": "878.4167,58.42",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@BackColor": "Yellow",
+              "@SourceExpression": "List.FieldExtensions.CustomerPostingGroup"
+            }
+          }
+        },
+        "GroupFooter1": {
+          "@ControlType": "GroupFooter",
+          "@Name": "GroupFooter1",
+          "@Dpi": "254",
+          "@GroupTotalFieldNo": "27",
+          "@Signature": "abc",
+          "@Height": "158.96167",
+          "Controls": {
+            "TextBox6": {
+              "@Name": "TextBox6",
+              "@ControlType": "TextBox",
+              "@Size": "254,158.96167",
+              "@Location": "1446.00024,0",
+              "@Dpi": "254",
+              "@BackColor": "Lime",
+              "@SourceExpression": "List.Balance_LCY"
+            },
+            "TextBox3": {
+              "@Name": "TextBox3",
+              "@ControlType": "TextBox",
+              "@Size": "878.4167,58.4199638",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@BackColor": "Lime",
+              "@SourceExpression": "List.FieldExtensions.PaymentTermsCode"
+            }
+          }
+        },
+        "GroupHeader2": {
+          "@ControlType": "GroupHeader",
+          "@Name": "GroupHeader2",
+          "@Dpi": "254",
+          "@GroupTotalFieldNo": "27",
+          "@Signature": "abc",
+          "@Height": "58.4199638",
+          "Controls": {
+            "TextBox2": {
+              "@Name": "TextBox2",
+              "@ControlType": "TextBox",
+              "@Size": "878.4167,58.4199638",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@BackColor": "Lime",
+              "@SourceExpression": "List.FieldExtensions.PaymentTermsCode"
+            }
+          }
+        },
+        "GroupFooter2": {
+          "@ControlType": "GroupFooter",
+          "@Name": "GroupFooter2",
+          "@Dpi": "254",
+          "@GroupTotalFieldNo": "21",
+          "@Signature": "abc",
+          "@Height": "58.42",
+          "Controls": {
+            "TextBox5": {
+              "@Name": "TextBox5",
+              "@ControlType": "TextBox",
+              "@Size": "254,58.42",
+              "@Location": "1446.00024,0",
+              "@Dpi": "254",
+              "@BackColor": "Yellow",
+              "@SourceExpression": "List.Balance_LCY"
+            },
+            "TextBox4": {
+              "@Name": "TextBox4",
+              "@ControlType": "TextBox",
+              "@Size": "878.4167,58.42",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@BackColor": "Yellow",
+              "@SourceExpression": "List.FieldExtensions.CustomerPostingGroup"
+            }
+          }
+        }
+      },
+      "Fields": {
+        "No": {
+          "@FieldName": "No.",
+          "@FieldNo": "1"
+        },
+        "Name": {
+          "@FieldName": "Name",
+          "@FieldNo": "2"
+        },
+        "Address": {
+          "@FieldName": "Address",
+          "@FieldNo": "5"
+        },
+        "City": {
+          "@FieldName": "City",
+          "@FieldNo": "7"
+        },
+        "Contact": {
+          "@FieldName": "Contact",
+          "@FieldNo": "8"
+        },
+        "PhoneNo": {
+          "@FieldName": "Phone No.",
+          "@FieldNo": "9"
+        },
+        "CreditLimit_LCY": {
+          "@FieldName": "Credit Limit (LCY)",
+          "@FieldNo": "20"
+        },
+        "CustomerPostingGroup": {
+          "@FieldName": "Customer Posting Group",
+          "@FieldNo": "21"
+        },
+        "CurrencyCode": {
+          "@FieldName": "Currency Code",
+          "@FieldNo": "22"
+        },
+        "CustomerPriceGroup": {
+          "@FieldName": "Customer Price Group",
+          "@FieldNo": "23"
+        },
+        "PaymentTermsCode": {
+          "@FieldName": "Payment Terms Code",
+          "@FieldNo": "27"
+        },
+        "FinChargeTermsCode": {
+          "@FieldName": "Fin. Charge Terms Code",
+          "@FieldNo": "28"
+        },
+        "SalespersonCode": {
+          "@FieldName": "Salesperson Code",
+          "@FieldNo": "29"
+        },
+        "InvoiceDiscCode": {
+          "@FieldName": "Invoice Disc. Code",
+          "@FieldNo": "33"
+        },
+        "Country_RegionCode": {
+          "@FieldName": "Country/Region Code",
+          "@FieldNo": "35"
+        },
+        "Balance_LCY": {
+          "@FieldName": "Balance (LCY)",
+          "@FieldNo": "59"
+        },
+        "NetChange_LCY": {
+          "@FieldName": "Net Change (LCY)",
+          "@FieldNo": "61"
+        },
+        "PostCode": {
+          "@FieldName": "Post Code",
+          "@FieldNo": "91"
+        },
+        "County": {
+          "@FieldName": "County",
+          "@FieldNo": "92"
+        },
+        "E_Mail": {
+          "@FieldName": "E-Mail",
+          "@FieldNo": "102"
+        }
+      }
+    },
+    "topMarginBand1": {
+      "@Name": "topMarginBand1",
+      "@ControlType": "TopMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    },
+    "bottomMarginBand1": {
+      "@Name": "bottomMarginBand1",
+      "@ControlType": "BottomMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    }
+  },
+  "StyleSheet": {
+    "Gainsboro": {
+      "@Name": "Gainsboro",
+      "@BorderStyle": "Inset",
+      "@Padding": "0,0,0,0,254",
+      "@BackColor": "Gainsboro",
+      "@StringFormat": "Near;Near;0;None;Character;Default"
+    }
+  },
+  "Records": {
+    "CompanyInformation": {
+      "@Table": "Company Information",
+      "@No": "79",
+      "@Name": "CompanyInformation"
+    },
+    "ForNAVSetup": {
+      "@Table": "ForNAV Setup",
+      "@No": "6188471",
+      "@Name": "ForNAVSetup",
+      "@CalcFields": "Logo"
+    }
+  },
+  "DesignerOptions": {
+    "@ShowExportWarnings": "false"
+  }
+}
