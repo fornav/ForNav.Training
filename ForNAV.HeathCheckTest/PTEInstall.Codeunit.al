@@ -8,12 +8,16 @@ codeunit 50100 "PTE Install"
         EnsureCustomLayout(Report::"PTE Report");
         EnsureReportDefault();
         EnsureOrphanedReportSelections();
+        EnsureBrokenReportRDLCLayout(Report::"PTE Report");
+        EnsureBrokenReportWordLayout(Report::"PTE Report");
+        EnsureMismatchedReportLayout(Report::"PTE Report", Report::"ForNAV Vendor - List");
     end;
 
     trigger OnInstallAppPerDatabase()
     begin
-        EnsureBrokenReportLayout(Report::"PTE Report");
-        EnsureMismatchedReportLayout(Report::"PTE Report", Report::"ForNAV Vendor - List");
+        // EnsureBrokenReportRDLCLayout(Report::"PTE Report");
+        // EnsureBrokenReportWordLayout(Report::"PTE Report");
+        // EnsureMismatchedReportLayout(Report::"PTE Report", Report::"ForNAV Vendor - List");
     end;
 
     local procedure EnsureReportLanguage()
@@ -111,18 +115,14 @@ codeunit 50100 "PTE Install"
         if ReportSelectionWarehouse.Insert() then;
     end;
 
-    procedure EnsureBrokenReportLayout(ReportId: Integer)
+    procedure EnsureBrokenReportRDLCLayout(ReportId: Integer)
     var
         TenantReportLayout: Record "Tenant Report Layout";
         TempBlob: Codeunit "Temp Blob";
         is: InStream;
         os: OutStream;
-        Rdlc: Text;
         TestLbl: Label 'Test RDLC %1', Comment = '%1 = report id', Locked = true;
     begin
-        TenantReportLayout.SetRange("Report ID", ReportId);
-        TenantReportLayout.SetRange(Name, StrSubstNo(TestLbl, ReportId));
-        TenantReportLayout.DeleteAll();
         TenantReportLayout.Init();
         TenantReportLayout."Report ID" := ReportId;
         TenantReportLayout.Name := StrSubstNo(TestLbl, ReportId);
@@ -130,11 +130,32 @@ codeunit 50100 "PTE Install"
         TenantReportLayout."Layout Format" := TenantReportLayout."Layout Format"::RDLC;
         TenantReportLayout.Description := 'EnsureBrokenReportLayout';
         TempBlob.CreateOutStream(os, TextEncoding::UTF8);
-        Rdlc := CreateEmptyRDLCFile();
-        os.WriteText(Rdlc);
+        os.WriteText(CreateEmptyRDLCFile());
         TempBlob.CreateInStream(is, TextEncoding::UTF8);
         TenantReportLayout.Layout.ImportStream(is, TenantReportLayout.Description);
-        TenantReportLayout.Insert(true);
+        if TenantReportLayout.Insert(true) then;
+    end;
+
+    procedure EnsureBrokenReportWordLayout(ReportId: Integer)
+    var
+        TenantReportLayout: Record "Tenant Report Layout";
+        TempBlob: Codeunit "Temp Blob";
+        is: InStream;
+        os: OutStream;
+        Rdlc: Text;
+        TestLbl: Label 'Test Word %1', Comment = '%1 = report id', Locked = true;
+    begin
+        TenantReportLayout.Init();
+        TenantReportLayout."Report ID" := ReportId;
+        TenantReportLayout.Name := StrSubstNo(TestLbl, ReportId);
+        TenantReportLayout."Company Name" := '';
+        TenantReportLayout."Layout Format" := TenantReportLayout."Layout Format"::Word;
+        TenantReportLayout.Description := 'EnsureBrokenReportLayout';
+        TempBlob.CreateOutStream(os);
+        Report.SaveAs(Report::"Customer - List", '', ReportFormat::Word, os);
+        TempBlob.CreateInStream(is);
+        TenantReportLayout.Layout.ImportStream(is, TenantReportLayout.Description);
+        if TenantReportLayout.Insert(true) then;
     end;
 
     procedure EnsureMismatchedReportLayout(ToReportId: Integer; FromReportId: Integer)
@@ -154,7 +175,7 @@ codeunit 50100 "PTE Install"
         TenantReportLayout.Description := 'EnsureMismatchedReportLayout';
         Report.WordLayout(FromReportId, is);
         TenantReportLayout.Layout.ImportStream(is, TenantReportLayout.Description);
-        TenantReportLayout.Insert(true);
+        if TenantReportLayout.Insert(true) then;
     end;
 
     local procedure CreateEmptyRDLCFile(): Text
