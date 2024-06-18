@@ -1,0 +1,213 @@
+{
+  "@ReportUnit": "TenthsOfAMillimeter",
+  "@Dpi": "254",
+  "@Margins": "209, 85, 200, 200",
+  "@ReportsForNavVersion": "7.3.0.2533",
+  "@ObjectName": "PTE Report",
+  "@OnPreReportScript": [
+    "CompanyInformation.Get();",
+    "CompanyInformation.CalcFields('Picture');"
+  ],
+  "Bands": {
+    "List": {
+      "@ControlType": "DataItem",
+      "@Name": "List",
+      "@Dpi": "254",
+      "@Id": "2",
+      "@DataItemVarName": "List",
+      "@DataItemTable": "Table18",
+      "Bands": {
+        "Header1": {
+          "@ControlType": "Header",
+          "@Name": "Header1",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@PrintOnEveryPage": "true",
+          "@Height": "396.875",
+          "Controls": {
+            "forNavTextBox5": {
+              "@Name": "forNavTextBox5",
+              "@ControlType": "TextBox",
+              "@Size": "1808.33337,90.1700058",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@Font": "Arial, 14pt",
+              "@BackColor": "LightBlue",
+              "@Padding": "3,3,3,3,254",
+              "@Borders": "Bottom",
+              "@SourceExpression": "CurrReport.Name"
+            },
+            "Shape1": {
+              "@Name": "Shape1",
+              "@ControlType": "Shape",
+              "@Size": "1808.33337,10.7949524",
+              "@Location": "0,386.079956",
+              "@ShapeType": "HorzLine",
+              "@Angle": "90",
+              "@Stretch": "true",
+              "@Dpi": "254",
+              "Shape": {
+                "@ShapeName": "Line"
+              }
+            },
+            "PictureBox1": {
+              "@Name": "PictureBox1",
+              "@ControlType": "PictureBox",
+              "@Dpi": "254",
+              "@Size": "859.895752,175.259979",
+              "@SourceExpression": "CompanyInformation.Picture",
+              "@HorzAlign": "Left",
+              "@Sizing": "ZoomImage",
+              "@Location": "0,90.1700439"
+            },
+            "TextBox1": {
+              "@Name": "TextBox1",
+              "@ControlType": "TextBox",
+              "@Size": "254,58.42",
+              "@Location": "1554.33325,207.009979",
+              "@Dpi": "254",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.Page"
+            },
+            "forNavTextBox2": {
+              "@Name": "forNavTextBox2",
+              "@ControlType": "TextBox",
+              "@Size": "948.437561,58.42",
+              "@Location": "859.8958,90.1700439",
+              "@Dpi": "254",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.CompanyName"
+            },
+            "forNavTextBox1": {
+              "@Name": "forNavTextBox1",
+              "@ControlType": "TextBox",
+              "@Size": "315,58.42",
+              "@Location": "1493.33325,148.590012",
+              "@Dpi": "254",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.Today"
+            }
+          }
+        },
+        "Footer1": {
+          "@ControlType": "Footer",
+          "@Name": "Footer1",
+          "@Dpi": "254",
+          "@PrintOnEveryPage": "true",
+          "@PlaceInBottom": "true",
+          "@Signature": "abc",
+          "@Height": "84.6666641",
+          "Controls": {
+            "forNavTextBox4": {
+              "@Name": "forNavTextBox4",
+              "@ControlType": "TextBox",
+              "@Size": "225,58.42",
+              "@Location": "1583.33325,26.2466221",
+              "@Dpi": "254",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.UserId"
+            },
+            "TextBox2": {
+              "@Name": "TextBox2",
+              "@ControlType": "TextBox",
+              "@Size": "1808.33325,58.4199638",
+              "@Location": "0,24.9999275",
+              "@Dpi": "254",
+              "@Borders": "Top",
+              "@SourceExpression": "CurrReport.FormatAddress('CompanyInformation.FieldGroups.Address',', ')"
+            }
+          }
+        },
+        "Body1": {
+          "@ControlType": "Body",
+          "@Name": "Body1",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@Height": "63.5",
+          "Controls": {
+            "table1": {
+              "@Name": "table1",
+              "@ControlType": "Table",
+              "@Size": "1806,63.5",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "Rows": {
+                "tableRow1": {
+                  "@Name": "tableRow1",
+                  "@ControlType": "TableRow",
+                  "@Dpi": "254",
+                  "@Weight": "0.5679012345679012",
+                  "Cells": {
+                    "tableCell1": {
+                      "@Name": "tableCell1",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.24329501915708812",
+                      "@SourceExpression": "List.No"
+                    },
+                    "tableCell2": {
+                      "@Name": "tableCell2",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.24329501915708812",
+                      "@SourceExpression": "List.Name"
+                    },
+                    "tableCell3": {
+                      "@Name": "tableCell3",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "0.24329501915708812",
+                      "@SourceExpression": "List.Address"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Fields": {
+        "No": {
+          "@FieldName": "No.",
+          "@FieldNo": "1"
+        },
+        "Name": {
+          "@FieldName": "Name",
+          "@FieldNo": "2"
+        },
+        "Address": {
+          "@FieldName": "Address",
+          "@FieldNo": "5"
+        }
+      }
+    },
+    "topMarginBand1": {
+      "@Name": "topMarginBand1",
+      "@ControlType": "TopMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    },
+    "bottomMarginBand1": {
+      "@Name": "bottomMarginBand1",
+      "@ControlType": "BottomMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    }
+  },
+  "Records": {
+    "CompanyInformation": {
+      "@Table": "Company Information",
+      "@No": "79",
+      "@Name": "CompanyInformation",
+      "Fields": {
+        "Picture": {
+          "@FieldName": "Picture",
+          "@FieldNo": "29"
+        }
+      }
+    }
+  },
+  "DesignerOptions": {
+    "@ShowExportWarnings": "false"
+  }
+}

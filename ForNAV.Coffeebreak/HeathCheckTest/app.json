@@ -1,0 +1,39 @@
+{
+  "id": "c6c3f07e-e034-4ac9-b035-1384e6be874e",
+  "name": "ForNAV.HeathCheckTest",
+  "publisher": "ForNAV",
+  "version": "1.0.0.0",
+  "brief": "A test extension to test the report and table removal",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "d6978c22-4a2f-452a-8f12-efdcf158d7e4",
+      "publisher": "ForNAV",
+      "name": "ForNAV Core Development e4",
+      "version": "1.0.0.0"
+    }
+  ],
+  "screenshots": [],
+  "platform": "24.0.0.0",
+  "application": "24.0.0.0",
+  "idRanges": [
+    {
+      "from": 50200,
+      "to": 50249
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "13.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
