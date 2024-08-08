@@ -4,13 +4,7 @@ codeunit 50100 "PTE Install"
 
     trigger OnInstallAppPerCompany()
     begin
-        EnsureReportLanguage();
-        EnsureCustomLayout(Report::"PTE Report");
-        EnsureReportDefault();
-        EnsureOrphanedReportSelections();
-        EnsureBrokenReportRDLCLayout(Report::"PTE Report");
-        EnsureBrokenReportWordLayout(Report::"PTE Report");
-        EnsureMismatchedReportLayout(Report::"PTE Report", Report::"ForNAV Vendor - List");
+        // BreakStuff();
     end;
 
     trigger OnInstallAppPerDatabase()
@@ -18,6 +12,18 @@ codeunit 50100 "PTE Install"
         // EnsureBrokenReportRDLCLayout(Report::"PTE Report");
         // EnsureBrokenReportWordLayout(Report::"PTE Report");
         // EnsureMismatchedReportLayout(Report::"PTE Report", Report::"ForNAV Vendor - List");
+    end;
+
+    procedure BreakStuff()
+    var
+    begin
+        EnsureReportLanguage();
+        EnsureCustomLayout(Report::"PTE Report");
+        EnsureReportDefault();
+        EnsureOrphanedReportSelections();
+        EnsureBrokenReportRDLCLayout(Report::"PTE Report");
+        EnsureBrokenReportWordLayout(Report::"PTE Report");
+        EnsureMismatchedReportLayout(Report::"PTE Report", Report::"ForNAV Vendor - List");
     end;
 
     local procedure EnsureReportLanguage()
