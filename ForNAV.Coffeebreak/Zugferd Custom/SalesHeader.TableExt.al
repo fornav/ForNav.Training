@@ -1,4 +1,4 @@
-tableextension 50101 "PTE Sales Header" extends "Sales Header"
+tableextension 50100 "PTE Sales Header" extends "Sales Header"
 {
     fields
     {
