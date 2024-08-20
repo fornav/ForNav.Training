@@ -1,0 +1,57 @@
+{
+  "id": "597e4cb8-1123-4fca-9db9-f74d103cf9ef",
+  "name": "Zugferd Custom",
+  "publisher": "ForNAV",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "f94c6dff-0118-4c1d-a7d4-382033529ed3",
+      "publisher": "ForNAV",
+      "name": "ForNAV Language Module",
+      "version": "7.3.0.10"
+    },
+    {
+      "id": "6f0293d3-86fc-4ff8-9632-54a580be6546",
+      "publisher": "ForNAV",
+      "name": "ForNAV Core",
+      "version": "7.3.0.10"
+    },
+    {
+      "id": "83326d6d-11f8-49fd-981a-6f266a7c8d81",
+      "publisher": "ForNAV",
+      "name": "Customizable Report Pack",
+      "version": "7.3.0.10"
+    },
+    {
+      "id": "9347ed4c-a512-4ff0-a15e-6344804918f9",
+      "publisher": "ForNAV",
+      "name": "ForNAV E-invoicing",
+      "version": "7.3.0.10"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "24.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "13.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}

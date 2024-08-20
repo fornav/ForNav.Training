@@ -2,7 +2,6 @@
   "@ReportUnit": "TenthsOfAMillimeter",
   "@Dpi": "254",
   "@Margins": "209, 85, 200, 200",
-  "@ReportsForNavVersion": "7.3.0.2533",
   "@ObjectName": "PTE Report",
   "@OnPreReportScript": [
     "CompanyInformation.Get();",
@@ -75,6 +74,7 @@
               "@Size": "948.437561,58.42",
               "@Location": "859.8958,90.1700439",
               "@Dpi": "254",
+              "@BackColor": "Yellow",
               "@HorzAlign": "Right",
               "@SourceExpression": "CurrReport.CompanyName"
             },
