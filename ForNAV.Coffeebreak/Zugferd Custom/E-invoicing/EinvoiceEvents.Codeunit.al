@@ -9,6 +9,7 @@ codeunit 50100 "PTE EInvoice Events"
         SalesInvoiceLine: Record "Sales Invoice Line";
         TradeLineItem: Record "ForNAV TradeLineItem";
         LineNo: Integer;
+
     begin
         case InvoiceDescriptor.Type of
             InvoiceDescriptor.Type::Invoice:
@@ -31,6 +32,7 @@ codeunit 50100 "PTE EInvoice Events"
                                 TradeLineItem.Modify();
                             end;
                         until TradeLineItem.Next() = 0;
+
                 end;
         end;
     end;
@@ -43,4 +45,5 @@ codeunit 50100 "PTE EInvoice Events"
                 RunYourOwnCodeHere(InvoiceDescriptor, eInvoice);
         end;
     end;
+
 }
