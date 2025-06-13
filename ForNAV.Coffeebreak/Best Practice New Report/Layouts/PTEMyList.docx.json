@@ -1,9 +1,9 @@
 {
   "@ReportUnit": "TenthsOfAMillimeter",
-  "@Dpi": "254",
   "@Margins": "209, 85, 200, 200",
-  "@ReportsForNavVersion": "7.2.0.2496",
+  "@Dpi": "254",
   "@ObjectName": "PTE My List",
+  "@ReportsForNavVersion": "8.0.0.2658",
   "@OnPreReportScript": [
     "CompanyInformation.Get();",
     "CompanyInformation.CalcFields('Picture');"
@@ -18,162 +18,6 @@
       "@DataItemVarName": "List",
       "@DataItemTable": "Table18",
       "Bands": {
-        "SalesHeader": {
-          "@ControlType": "DataItem",
-          "@Name": "SalesHeader",
-          "@Dpi": "254",
-          "@TotalFields": "60",
-          "@CalcFields": "Amount",
-          "@Id": "3",
-          "@SetLanguageFieldNo": "41",
-          "@ReqFilterFields": "\"No.\"",
-          "@DataItemLink": "\"Sell-to Customer No.\" = FIELD(\"No.\")",
-          "@DataItemTableView": "SORTING(\"Document Type\",\"No.\") WHERE(\"Document Type\"=CONST(Order))",
-          "@DataItemTable": "Table36",
-          "Bands": {
-            "SalesHeaderHeader": {
-              "@ControlType": "Header",
-              "@Name": "SalesHeaderHeader",
-              "@Dpi": "254",
-              "@Height": "63.5",
-              "Controls": {
-                "table3": {
-                  "@Name": "table3",
-                  "@ControlType": "Table",
-                  "@Size": "1806,63.5",
-                  "@Location": "0,0",
-                  "@Dpi": "254",
-                  "Rows": {
-                    "tableRow3": {
-                      "@Name": "tableRow3",
-                      "@ControlType": "TableRow",
-                      "@Dpi": "254",
-                      "@Weight": "0.5679012345679012",
-                      "@AutoFit": "true",
-                      "Cells": {
-                        "tableCell9": {
-                          "@Name": "tableCell9",
-                          "@ControlType": "TableCell",
-                          "@Dpi": "254",
-                          "@Font": "Arial, 7pt, style=Bold",
-                          "@Weight": "0.19568567026194145",
-                          "@SourceExpression": "SalesHeader.FieldCaptions.No"
-                        },
-                        "tableCell10": {
-                          "@Name": "tableCell10",
-                          "@ControlType": "TableCell",
-                          "@Dpi": "254",
-                          "@Font": "Arial, 7pt, style=Bold",
-                          "@Weight": "0.19568567026194145",
-                          "@SourceExpression": "SalesHeader.FieldCaptions.Amount",
-                          "@HorzAlign": "Right"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "SalesHeaderBody": {
-              "@ControlType": "Body",
-              "@Name": "SalesHeaderBody",
-              "@Dpi": "254",
-              "@Height": "63.5",
-              "Controls": {
-                "table4": {
-                  "@Name": "table4",
-                  "@ControlType": "Table",
-                  "@Size": "1806,63.5",
-                  "@Location": "0,0",
-                  "@Dpi": "254",
-                  "Rows": {
-                    "tableRow4": {
-                      "@Name": "tableRow4",
-                      "@ControlType": "TableRow",
-                      "@Dpi": "254",
-                      "@Weight": "0.5679012345679012",
-                      "Cells": {
-                        "tableCell11": {
-                          "@Name": "tableCell11",
-                          "@ControlType": "TableCell",
-                          "@Dpi": "254",
-                          "@Weight": "0.19568567026194145",
-                          "@SourceExpression": "SalesHeader.No"
-                        },
-                        "tableCell12": {
-                          "@Name": "tableCell12",
-                          "@ControlType": "TableCell",
-                          "@Dpi": "254",
-                          "@Weight": "0.19568567026194145",
-                          "@SourceExpression": "SalesHeader.Amount",
-                          "@HorzAlign": "Right"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "SalesHeaderFooter": {
-              "@ControlType": "Footer",
-              "@Name": "SalesHeaderFooter",
-              "@Dpi": "254",
-              "@Height": "63.5",
-              "Controls": {
-                "table5": {
-                  "@Name": "table5",
-                  "@ControlType": "Table",
-                  "@Size": "1806,63.5",
-                  "@Location": "0,0",
-                  "@Dpi": "254",
-                  "Rows": {
-                    "tableRow5": {
-                      "@Name": "tableRow5",
-                      "@ControlType": "TableRow",
-                      "@Dpi": "254",
-                      "@Weight": "0.5679012345679012",
-                      "Cells": {
-                        "tableCell13": {
-                          "@Name": "tableCell13",
-                          "@ControlType": "TableCell",
-                          "@Dpi": "254",
-                          "@Weight": "0.19568567026194145"
-                        },
-                        "tableCell14": {
-                          "@Name": "tableCell14",
-                          "@ControlType": "TableCell",
-                          "@Dpi": "254",
-                          "@Font": "Arial, 7pt, style=Bold",
-                          "@Weight": "0.19568567026194145",
-                          "@SourceExpression": "SalesHeader.Amount",
-                          "@HorzAlign": "Right"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "Fields": {
-            "DocumentType": {
-              "@FieldName": "Document Type",
-              "@FieldNo": "1"
-            },
-            "No": {
-              "@FieldName": "No.",
-              "@FieldNo": "3"
-            },
-            "FormatRegion": {
-              "@FieldName": "Format Region",
-              "@FieldNo": "42"
-            },
-            "Amount": {
-              "@FieldName": "Amount",
-              "@FieldNo": "60"
-            }
-          }
-        },
         "Header1": {
           "@ControlType": "Header",
           "@Name": "Header1",
@@ -387,6 +231,159 @@
               }
             }
           }
+        },
+        "SalesHeader": {
+          "@ControlType": "DataItem",
+          "@Name": "SalesHeader",
+          "@Dpi": "254",
+          "@TotalFields": "60",
+          "@CalcFields": "Amount",
+          "@Id": "3",
+          "@SetLanguageFieldNo": "41",
+          "@DataItemLink": "\"Sell-to Customer No.\" = FIELD(\"No.\")",
+          "@DataItemTableView": "SORTING(\"Document Type\", \"No.\") WHERE(\"Document Type\" = CONST(Order))",
+          "@ReqFilterFields": "\"No.\"",
+          "@DataItemVarName": "Sales Header",
+          "@DataItemTable": "Table36",
+          "Bands": {
+            "SalesHeaderHeader": {
+              "@ControlType": "Header",
+              "@Name": "SalesHeaderHeader",
+              "@Dpi": "254",
+              "@Height": "63.5",
+              "Controls": {
+                "table3": {
+                  "@Name": "table3",
+                  "@ControlType": "Table",
+                  "@Size": "1806,63.5",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "tableRow3": {
+                      "@Name": "tableRow3",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "@AutoFit": "true",
+                      "Cells": {
+                        "tableCell9": {
+                          "@Name": "tableCell9",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 7pt, style=Bold",
+                          "@Weight": "0.19568567026194145",
+                          "@SourceExpression": "SalesHeader.FieldCaptions.No"
+                        },
+                        "tableCell10": {
+                          "@Name": "tableCell10",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 7pt, style=Bold",
+                          "@Weight": "0.19568567026194145",
+                          "@SourceExpression": "SalesHeader.FieldCaptions.Amount",
+                          "@HorzAlign": "Right"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "SalesHeaderBody": {
+              "@ControlType": "Body",
+              "@Name": "SalesHeaderBody",
+              "@Dpi": "254",
+              "@Height": "63.5",
+              "Controls": {
+                "table4": {
+                  "@Name": "table4",
+                  "@ControlType": "Table",
+                  "@Size": "1806,63.5",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "tableRow4": {
+                      "@Name": "tableRow4",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "Cells": {
+                        "tableCell11": {
+                          "@Name": "tableCell11",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "0.19568567026194145",
+                          "@SourceExpression": "SalesHeader.No"
+                        },
+                        "tableCell12": {
+                          "@Name": "tableCell12",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "0.19568567026194145",
+                          "@SourceExpression": "SalesHeader.Amount",
+                          "@HorzAlign": "Right"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "SalesHeaderFooter": {
+              "@ControlType": "Footer",
+              "@Name": "SalesHeaderFooter",
+              "@Dpi": "254",
+              "@Height": "63.5",
+              "Controls": {
+                "table5": {
+                  "@Name": "table5",
+                  "@ControlType": "Table",
+                  "@Size": "1806,63.5",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "tableRow5": {
+                      "@Name": "tableRow5",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "Cells": {
+                        "tableCell13": {
+                          "@Name": "tableCell13",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "0.19568567026194145"
+                        },
+                        "tableCell14": {
+                          "@Name": "tableCell14",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 7pt, style=Bold",
+                          "@Weight": "0.19568567026194145",
+                          "@SourceExpression": "SalesHeader.Amount",
+                          "@HorzAlign": "Right"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Fields": {
+            "DocumentType": {
+              "@FieldName": "Document Type",
+              "@FieldNo": "1"
+            },
+            "No": {
+              "@FieldName": "No.",
+              "@FieldNo": "3"
+            },
+            "Amount": {
+              "@FieldName": "Amount",
+              "@FieldNo": "60"
+            }
+          }
         }
       },
       "Fields": {
@@ -401,10 +398,6 @@
         "Address": {
           "@FieldName": "Address",
           "@FieldNo": "5"
-        },
-        "FormatRegion": {
-          "@FieldName": "Format Region",
-          "@FieldNo": "48"
         },
         "Balance_LCY": {
           "@FieldName": "Balance (LCY)",
@@ -425,6 +418,9 @@
       "@Height": "200"
     }
   },
+  "DesignerOptions": {
+    "@ShowExportWarnings": "false"
+  },
   "Records": {
     "CompanyInformation": {
       "@Table": "Company Information",
@@ -437,8 +433,5 @@
         }
       }
     }
-  },
-  "DesignerOptions": {
-    "@ShowExportWarnings": "false"
   }
 }
