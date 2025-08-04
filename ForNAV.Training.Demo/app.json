@@ -11,6 +11,24 @@
   "url": "",
   "logo": "",
   "dependencies": [
+    {
+      "id": "6f0293d3-86fc-4ff8-9632-54a580be6546",
+      "name": "ForNAV Core",
+      "publisher": "ForNAV",
+      "version": "8.0.0.0"
+    },
+    {
+      "id": "83326d6d-11f8-49fd-981a-6f266a7c8d81",
+      "publisher": "ForNAV",
+      "name": "Customizable Report Pack",
+      "version": "8.0.0.0"
+    },
+    {
+      "id": "8f9a54e2-3f61-4016-9c4d-274689d5d269",
+      "publisher": "Red and Bundle",
+      "name": "Red Ink Text Templates",
+      "version": "1.0.0.0"
+    }
   ],
   "screenshots": [],
   "platform": "23.0.0.0",
