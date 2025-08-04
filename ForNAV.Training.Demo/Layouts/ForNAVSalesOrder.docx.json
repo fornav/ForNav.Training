@@ -1,0 +1,628 @@
+{
+  "@ReportUnit": "TenthsOfAMillimeter",
+  "@Margins": "209, 85, 200, 200",
+  "@Dpi": "254",
+  "@Font": "Arial, 9pt",
+  "@ObjectName": "ForNAV TR Sales Order",
+  "@ReportsForNavVersion": "8.0.0.2658",
+  "@ReqSaveValues": "true",
+  "Bands": {
+    "Header": {
+      "@ControlType": "DataItem",
+      "@Name": "Header",
+      "@Dpi": "254",
+      "@ResetPageNumber": "true",
+      "@NewPagePerRecord": "true",
+      "@Id": "2",
+      "@SetLanguageFieldNo": "41",
+      "@DataItemTableView": "SORTING(\"Document Type\", \"No.\") WHERE(\"Document Type\" = CONST(Order))",
+      "@ReqFilterFields": "\"No.\"",
+      "@DataItemVarName": "Header",
+      "@DataItemTable": "Table36",
+      "Bands": {
+        "DocumentHeader": {
+          "@ControlType": "Header",
+          "@Name": "DocumentHeader",
+          "@BackColor": "Beige",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@MasterSection": "ForNAV Sales Template,DocumentHeader",
+          "@PrintOnEveryPage": "true",
+          "@Height": "714.375",
+          "Controls": {
+            "BarCode1": {
+              "@Name": "BarCode1",
+              "@ControlType": "BarCode",
+              "@Location": "1545.66675,214.312332",
+              "@Dpi": "254",
+              "@Padding": "25,25,0,0,254",
+              "@Size": "260.333,230.187653",
+              "@AutoModule": "true",
+              "@SourceExpression": "Header.No",
+              "@ShowText": "false",
+              "Symbology": {
+                "@Name": "QRCode"
+              }
+            },
+            "TextBox20": {
+              "@Name": "TextBox20",
+              "@ControlType": "TextBox",
+              "@Size": "833.4376,75.75345",
+              "@Location": "8.074442E-05,296.1216",
+              "@Dpi": "254",
+              "@Font": "Arial, 12pt",
+              "@SourceExpression": "Header.FieldCaptions.No + ': ' + Header.No"
+            },
+            "TextBox2": {
+              "@Name": "TextBox2",
+              "@ControlType": "TextBox",
+              "@Size": "833.4375,215.961731",
+              "@Location": "0,459.166656",
+              "@Dpi": "254",
+              "@VertAlign": "Top",
+              "@HorzAlign": "Left",
+              "@SourceExpression": "Header.FieldGroups.Bill_toAddress"
+            },
+            "TextBox4": {
+              "@Name": "TextBox4",
+              "@ControlType": "TextBox",
+              "@Size": "748.7709,211.878342",
+              "@Location": "1057.22888,459.166656",
+              "@Dpi": "254",
+              "@VertAlign": "Top",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CompanyInformation.FieldGroups.Address"
+            },
+            "TextBox3": {
+              "@Name": "TextBox3",
+              "@ControlType": "TextBox",
+              "@Size": "946.104431,90.1700439",
+              "@Location": "859.8958,0",
+              "@Dpi": "254",
+              "@Font": "Arial, 16pt",
+              "@ForeColor": "Blue",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.Name"
+            },
+            "PictureBox1": {
+              "@Name": "PictureBox1",
+              "@ControlType": "PictureBox",
+              "@Dpi": "254",
+              "@Size": "754.062439,255.458328",
+              "@SourceExpression": "CompanyInformation.Picture",
+              "@HorzAlign": "Left",
+              "@Sizing": "ZoomImage",
+              "@Location": "8.074442E-05,0"
+            },
+            "TextBox1": {
+              "@Name": "TextBox1",
+              "@ControlType": "TextBox",
+              "@Size": "381,58.42",
+              "@Location": "1427.33325,90.1700439",
+              "@Dpi": "254",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.Page"
+            },
+            "TextBox9": {
+              "@Name": "TextBox9",
+              "@ControlType": "TextBox",
+              "@Size": "381,58.42",
+              "@Location": "1427.33325,148.590012",
+              "@Dpi": "254",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "Header.DocumentDate"
+            }
+          }
+        },
+        "DocumentFooter": {
+          "@ControlType": "Footer",
+          "@Name": "DocumentFooter",
+          "@Dpi": "254",
+          "@PrintOnEveryPage": "true",
+          "@PlaceInBottom": "true",
+          "@Signature": "abc",
+          "@Height": "254",
+          "Controls": {
+            "Header_FieldGroups_Bill_toAddress6": {
+              "@Name": "Header_FieldGroups_Bill_toAddress6",
+              "@ControlType": "TextBox",
+              "@Size": "1805.99988,140.000015",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@ForeColor": "255,64,64,64",
+              "@Borders": "Top",
+              "@MultiLine": "true",
+              "@HorzAlign": "Center",
+              "@SourceExpression": [
+                "[",
+                "CompanyInformation.PhoneNo  != '' ? CompanyInformation.FieldCaptions.PhoneNo + ' : ' + CompanyInformation.PhoneNo  : null, ",
+                "CompanyInformation.E_Mail != '' ? CompanyInformation.FieldCaptions.E_Mail + ' : ' + CompanyInformation.E_Mail : null,",
+                "CompanyInformation.HomePage  != '' ? CompanyInformation.FieldCaptions.HomePage + ' : ' + CompanyInformation.HomePage : null, ",
+                "CompanyInformation.VATRegistrationNo != '' ? CompanyInformation.FieldCaptions.VATRegistrationNo + ' : '  + CompanyInformation.VATRegistrationNo : null, ",
+                "CompanyInformation.IBAN != '' ? CompanyInformation.FieldCaptions.IBAN + ' : ' + CompanyInformation.IBAN : null, ",
+                "CompanyInformation.SWIFTCode  != '' ? CompanyInformation.FieldCaptions.SWIFTCode + ' : ' + CompanyInformation.SWIFTCode : null",
+                "].",
+                "filter(function (val) {return val;}).join(' | ')"
+              ]
+            }
+          }
+        },
+        "ForNAVTRTable": {
+          "@ControlType": "DataItem",
+          "@Name": "ForNAVTRTable",
+          "@Dpi": "254",
+          "@Id": "4",
+          "@DataItemLink": "CustomerNo = FIELD(\"Sell-to Customer No.\")",
+          "@DataItemVarName": "ForNAV TR Table",
+          "@DataItemTable": "Table70630",
+          "Bands": {
+            "ForNAVTRTableBody": {
+              "@ControlType": "Body",
+              "@Name": "ForNAVTRTableBody",
+              "@Dpi": "254",
+              "@Signature": "abc",
+              "@Height": "58.42",
+              "Controls": {
+                "TextBox5": {
+                  "@Name": "TextBox5",
+                  "@ControlType": "TextBox",
+                  "@Size": "1805.99976,58.4199638",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "@BackColor": "255,255,255,192",
+                  "@SourceExpression": "ForNAVTRTable.Description"
+                }
+              }
+            }
+          },
+          "Fields": {
+            "Description": {
+              "@FieldName": "Description",
+              "@FieldNo": "3"
+            }
+          }
+        },
+        "Line": {
+          "@ControlType": "DataItem",
+          "@Name": "Line",
+          "@Dpi": "254",
+          "@TotalFields": "29",
+          "@Id": "3",
+          "@DataItemLink": "\"Document No.\" = FIELD(\"No.\"), \"Document Type\" = FIELD(\"Document Type\")",
+          "@DataItemTableView": "SORTING(\"Document Type\", \"Document No.\", \"Line No.\")",
+          "@DataItemVarName": "Line",
+          "@DataItemTable": "Table37",
+          "Bands": {
+            "LineHeader": {
+              "@ControlType": "Header",
+              "@Name": "LineHeader",
+              "@Dpi": "254",
+              "@Height": "63.5",
+              "Controls": {
+                "table1": {
+                  "@Name": "table1",
+                  "@ControlType": "Table",
+                  "@Size": "1806,63.5",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "tableRow1": {
+                      "@Name": "tableRow1",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "@AutoFit": "true",
+                      "Cells": {
+                        "tableCell1": {
+                          "@Name": "tableCell1",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 9pt, style=Bold",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.FieldCaptions.No"
+                        },
+                        "tableCell2": {
+                          "@Name": "tableCell2",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 9pt, style=Bold",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.FieldCaptions.Type"
+                        },
+                        "tableCell3": {
+                          "@Name": "tableCell3",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 9pt, style=Bold",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.FieldCaptions.Description"
+                        },
+                        "tableCell4": {
+                          "@Name": "tableCell4",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 9pt, style=Bold",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.FieldCaptions.Quantity",
+                          "@HorzAlign": "Right"
+                        },
+                        "tableCell5": {
+                          "@Name": "tableCell5",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 9pt, style=Bold",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.FieldCaptions.UnitofMeasure"
+                        },
+                        "tableCell6": {
+                          "@Name": "tableCell6",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 9pt, style=Bold",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.FieldCaptions.UnitPrice",
+                          "@HorzAlign": "Right"
+                        },
+                        "tableCell7": {
+                          "@Name": "tableCell7",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 9pt, style=Bold",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.FieldCaptions.Amount",
+                          "@HorzAlign": "Right"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "LineBody": {
+              "@ControlType": "Body",
+              "@Name": "LineBody",
+              "@Dpi": "254",
+              "@Height": "63.5",
+              "Controls": {
+                "table2": {
+                  "@Name": "table2",
+                  "@ControlType": "Table",
+                  "@Size": "1806,63.5",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "tableRow2": {
+                      "@Name": "tableRow2",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "Cells": {
+                        "tableCell8": {
+                          "@Name": "tableCell8",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.No"
+                        },
+                        "tableCell9": {
+                          "@Name": "tableCell9",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.Type"
+                        },
+                        "tableCell10": {
+                          "@Name": "tableCell10",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.Description"
+                        },
+                        "tableCell11": {
+                          "@Name": "tableCell11",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.Quantity",
+                          "@HorzAlign": "Right"
+                        },
+                        "tableCell12": {
+                          "@Name": "tableCell12",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.UnitofMeasure"
+                        },
+                        "tableCell13": {
+                          "@Name": "tableCell13",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.UnitPrice",
+                          "@HorzAlign": "Right"
+                        },
+                        "tableCell14": {
+                          "@Name": "tableCell14",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.Amount",
+                          "@HorzAlign": "Right"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "LineFooter": {
+              "@ControlType": "Footer",
+              "@Name": "LineFooter",
+              "@Dpi": "254",
+              "@Height": "63.5",
+              "Controls": {
+                "table3": {
+                  "@Name": "table3",
+                  "@ControlType": "Table",
+                  "@Size": "1806,63.5",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "tableRow3": {
+                      "@Name": "tableRow3",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "Cells": {
+                        "tableCell15": {
+                          "@Name": "tableCell15",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712"
+                        },
+                        "tableCell16": {
+                          "@Name": "tableCell16",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712"
+                        },
+                        "tableCell17": {
+                          "@Name": "tableCell17",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712"
+                        },
+                        "tableCell18": {
+                          "@Name": "tableCell18",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712"
+                        },
+                        "tableCell19": {
+                          "@Name": "tableCell19",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712"
+                        },
+                        "tableCell20": {
+                          "@Name": "tableCell20",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Weight": "9.0714285714285712"
+                        },
+                        "tableCell21": {
+                          "@Name": "tableCell21",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@Font": "Arial, 9pt, style=Bold",
+                          "@Weight": "9.0714285714285712",
+                          "@SourceExpression": "Line.Amount",
+                          "@HorzAlign": "Right"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Fields": {
+            "DocumentType": {
+              "@FieldName": "Document Type",
+              "@FieldNo": "1"
+            },
+            "DocumentNo": {
+              "@FieldName": "Document No.",
+              "@FieldNo": "3"
+            },
+            "LineNo": {
+              "@FieldName": "Line No.",
+              "@FieldNo": "4"
+            },
+            "Type": {
+              "@FieldName": "Type",
+              "@FieldNo": "5"
+            },
+            "No": {
+              "@FieldName": "No.",
+              "@FieldNo": "6"
+            },
+            "Description": {
+              "@FieldName": "Description",
+              "@FieldNo": "11"
+            },
+            "UnitofMeasure": {
+              "@FieldName": "Unit of Measure",
+              "@FieldNo": "13"
+            },
+            "Quantity": {
+              "@FieldName": "Quantity",
+              "@FieldNo": "15"
+            },
+            "UnitPrice": {
+              "@FieldName": "Unit Price",
+              "@FieldNo": "22"
+            },
+            "Amount": {
+              "@FieldName": "Amount",
+              "@FieldNo": "29"
+            }
+          }
+        },
+        "RedInkText": {
+          "@ControlType": "DataItem",
+          "@Name": "RedInkText",
+          "@Dpi": "254",
+          "@CalcFields": "HTML",
+          "@Id": "5",
+          "@DataItemLink": "\"Source System Id\" = FIELD(systemId)",
+          "@DataItemTableView": "WHERE(\"Source Table No.\" = CONST(36))",
+          "@DataItemVarName": "Red Ink Text",
+          "@DataItemTable": "Table11310912",
+          "Bands": {
+            "RedInkTextBody": {
+              "@ControlType": "Body",
+              "@Name": "RedInkTextBody",
+              "@Dpi": "254",
+              "@Signature": "abc",
+              "@Height": "63.5",
+              "Controls": {
+                "table4": {
+                  "@Name": "table4",
+                  "@ControlType": "Table",
+                  "@Size": "1806,63.5",
+                  "@Location": "0,0",
+                  "@Dpi": "254",
+                  "Rows": {
+                    "tableRow4": {
+                      "@Name": "tableRow4",
+                      "@ControlType": "TableRow",
+                      "@Dpi": "254",
+                      "@Weight": "0.5679012345679012",
+                      "Cells": {
+                        "tableCell22": {
+                          "@Name": "tableCell22",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@BackColor": "255,192,255,192",
+                          "@Weight": "0.32151898734177214",
+                          "@SourceExpression": "RedInkText.Type"
+                        },
+                        "tableCell23": {
+                          "@Name": "tableCell23",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@BackColor": "255,192,255,192",
+                          "@Weight": "0.32151898734177214",
+                          "@SourceExpression": "RedInkText.Description"
+                        },
+                        "tableCell24": {
+                          "@Name": "tableCell24",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@BackColor": "255,192,255,192",
+                          "@Weight": "0.32151898734177214",
+                          "@SourceExpression": "RedInkText.PreviewText"
+                        },
+                        "tableCell25": {
+                          "@Name": "tableCell25",
+                          "@ControlType": "TableCell",
+                          "@Dpi": "254",
+                          "@BackColor": "255,192,255,192",
+                          "@Weight": "0.32151898734177214",
+                          "@SourceExpression": "RedInkText.HTML"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Fields": {
+            "Type": {
+              "@FieldName": "Type",
+              "@FieldNo": "5"
+            },
+            "Description": {
+              "@FieldName": "Description",
+              "@FieldNo": "6"
+            },
+            "PreviewText": {
+              "@FieldName": "Preview Text",
+              "@FieldNo": "8"
+            },
+            "HTML": {
+              "@FieldName": "HTML",
+              "@FieldNo": "20"
+            }
+          }
+        }
+      },
+      "Fields": {
+        "DocumentType": {
+          "@FieldName": "Document Type",
+          "@FieldNo": "1"
+        },
+        "No": {
+          "@FieldName": "No.",
+          "@FieldNo": "3"
+        },
+        "FormatRegion": {
+          "@FieldName": "Format Region",
+          "@FieldNo": "42"
+        }
+      }
+    },
+    "topMarginBand1": {
+      "@Name": "topMarginBand1",
+      "@ControlType": "TopMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    },
+    "bottomMarginBand1": {
+      "@Name": "bottomMarginBand1",
+      "@ControlType": "BottomMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    }
+  },
+  "DesignerOptions": {
+    "@ShowExportWarnings": "false"
+  },
+  "Records": {
+    "CompanyInformation": {
+      "@Table": "Company Information",
+      "@No": "79",
+      "@Name": "CompanyInformation",
+      "@CalcFields": "Picture",
+      "Fields": {
+        "PhoneNo": {
+          "@FieldName": "Phone No.",
+          "@FieldNo": "7"
+        },
+        "VATRegistrationNo": {
+          "@FieldName": "VAT Registration No.",
+          "@FieldNo": "19"
+        },
+        "E_Mail": {
+          "@FieldName": "E-Mail",
+          "@FieldNo": "34"
+        },
+        "HomePage": {
+          "@FieldName": "Home Page",
+          "@FieldNo": "35"
+        },
+        "IBAN": {
+          "@FieldName": "IBAN",
+          "@FieldNo": "38"
+        },
+        "SWIFTCode": {
+          "@FieldName": "SWIFT Code",
+          "@FieldNo": "39"
+        }
+      }
+    }
+  }
+}
