@@ -1,0 +1,245 @@
+{
+  "@ReportUnit": "TenthsOfAMillimeter",
+  "@Margins": "209, 85, 200, 200",
+  "@Dpi": "254",
+  "@Font": "Arial, 10pt",
+  "@ReqSaveValues": "true",
+  "@ObjectName": "ForNAV Item Datasheet",
+  "@OnPreReportScript": [
+    "CompanyInformation.Get();",
+    "CompanyInformation.CalcFields('Picture');"
+  ],
+  "Bands": {
+    "Item": {
+      "@ControlType": "DataItem",
+      "@Name": "Item",
+      "@Dpi": "254",
+      "@Font": "Arial, 10pt",
+      "@NewPagePerRecord": "true",
+      "@Id": "2",
+      "@ReqFilterFields": "\"No.\"",
+      "@DataItemTable": "Table27",
+      "@DataItemVarName": "Item",
+      "Bands": {
+        "ItemHeader": {
+          "@ControlType": "Header",
+          "@Name": "ItemHeader",
+          "@Font": "Arial, 10pt",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@PrintOnEveryPage": "true",
+          "@Height": "265.430023",
+          "Controls": {
+            "forNavTextBox5": {
+              "@Name": "forNavTextBox5",
+              "@ControlType": "TextBox",
+              "@Size": "1808.33337,90.1700058",
+              "@Location": "0,0",
+              "@Dpi": "254",
+              "@Font": "Arial, 14pt",
+              "@ForeColor": "White",
+              "@BackColor": "255,230,66,21",
+              "@Padding": "3,3,3,3,254",
+              "@Borders": "Bottom",
+              "@SourceExpression": "CurrReport.Name"
+            },
+            "PictureBox1": {
+              "@Name": "PictureBox1",
+              "@ControlType": "PictureBox",
+              "@Dpi": "254",
+              "@Size": "859.895752,175.259979",
+              "@SourceExpression": "CompanyInformation.Picture",
+              "@HorzAlign": "Left",
+              "@Font": "Arial, 10pt",
+              "@Sizing": "ZoomImage",
+              "@Location": "0,90.1700439"
+            },
+            "TextBox1": {
+              "@Name": "TextBox1",
+              "@ControlType": "TextBox",
+              "@Size": "254,58.42",
+              "@Location": "1554.33325,207.009979",
+              "@Dpi": "254",
+              "@Font": "Arial, 10pt",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.Page"
+            },
+            "forNavTextBox2": {
+              "@Name": "forNavTextBox2",
+              "@ControlType": "TextBox",
+              "@Size": "948.437561,58.42",
+              "@Location": "859.8958,90.1700439",
+              "@Dpi": "254",
+              "@Font": "Arial, 10pt",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.CompanyName"
+            },
+            "forNavTextBox1": {
+              "@Name": "forNavTextBox1",
+              "@ControlType": "TextBox",
+              "@Size": "315,58.42",
+              "@Location": "1493.33325,148.590012",
+              "@Dpi": "254",
+              "@Font": "Arial, 10pt",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.Today"
+            }
+          }
+        },
+        "ItemFooter": {
+          "@ControlType": "Footer",
+          "@Name": "ItemFooter",
+          "@Dpi": "254",
+          "@Font": "Arial, 10pt",
+          "@PrintOnEveryPage": "true",
+          "@PlaceInBottom": "true",
+          "@Signature": "abc",
+          "@Height": "84.6666641",
+          "Controls": {
+            "forNavTextBox4": {
+              "@Name": "forNavTextBox4",
+              "@ControlType": "TextBox",
+              "@Size": "225,58.42",
+              "@Location": "1583.33325,26.2466221",
+              "@Dpi": "254",
+              "@Font": "Arial, 10pt",
+              "@HorzAlign": "Right",
+              "@SourceExpression": "CurrReport.UserId"
+            },
+            "TextBox2": {
+              "@Name": "TextBox2",
+              "@ControlType": "TextBox",
+              "@Size": "1808.33325,58.4199638",
+              "@Location": "0,24.9999275",
+              "@Dpi": "254",
+              "@Font": "Arial, 10pt",
+              "@Borders": "Top",
+              "@SourceExpression": "CurrReport.FormatAddress('CompanyInformation.FieldGroups.Address',', ')"
+            }
+          }
+        },
+        "ItemBody": {
+          "@ControlType": "Body",
+          "@Name": "ItemBody",
+          "@Font": "Arial, 10pt",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@CanGrow": "true",
+          "@Height": "717.232544",
+          "Controls": {
+            "TextBox7": {
+              "@Name": "TextBox7",
+              "@ControlType": "TextBox",
+              "@Size": "893.1874,58.42",
+              "@Location": "912.8125,175.259964",
+              "@Dpi": "254",
+              "@Font": "Arial, 10pt",
+              "@SourceExpression": "Item.FieldExtensions.UnitPrice"
+            },
+            "TextBox6": {
+              "@Name": "TextBox6",
+              "@ControlType": "TextBox",
+              "@Size": "893.1874,58.42",
+              "@Location": "912.8125,116.839966",
+              "@Dpi": "254",
+              "@Font": "Arial, 10pt",
+              "@SourceExpression": "Item.FieldExtensions.GrossWeight"
+            },
+            "TextBox5": {
+              "@Name": "TextBox5",
+              "@ControlType": "TextBox",
+              "@Size": "893.1874,58.42",
+              "@Location": "912.8125,58.4199638",
+              "@Dpi": "254",
+              "@Font": "Arial, 10pt",
+              "@SourceExpression": "Item.FieldExtensions.Description"
+            },
+            "TextBox4": {
+              "@Name": "TextBox4",
+              "@ControlType": "TextBox",
+              "@Size": "893.1874,58.4199638",
+              "@Location": "912.8125,0",
+              "@Dpi": "254",
+              "@Font": "Arial, 10pt",
+              "@SourceExpression": "Item.FieldExtensions.No"
+            },
+            "TextBox3": {
+              "@Name": "TextBox3",
+              "@ControlType": "TextBox",
+              "@Size": "1806.00012,58.41986",
+              "@Location": "0,658.8127",
+              "@Dpi": "254",
+              "@Font": "Arial, 10pt",
+              "@VertAlign": "Top",
+              "@HorzAlign": "Left",
+              "@SourceExpression": "Item.FieldLookups.EntityText",
+              "@CanGrow": "true"
+            },
+            "PictureBox2": {
+              "@Name": "PictureBox2",
+              "@ControlType": "PictureBox",
+              "@Dpi": "254",
+              "@Size": "859.895752,658.8127",
+              "@SourceExpression": "Item.Picture",
+              "@Font": "Arial, 10pt",
+              "@Sizing": "ZoomImage",
+              "@Location": "0,0"
+            }
+          }
+        }
+      },
+      "Fields": {
+        "No": {
+          "@FieldName": "No.",
+          "@FieldNo": "1"
+        },
+        "Description": {
+          "@FieldName": "Description",
+          "@FieldNo": "3"
+        },
+        "UnitPrice": {
+          "@FieldName": "Unit Price",
+          "@FieldNo": "18"
+        },
+        "GrossWeight": {
+          "@FieldName": "Gross Weight",
+          "@FieldNo": "41"
+        },
+        "Picture": {
+          "@FieldName": "Picture",
+          "@FieldNo": "92"
+        }
+      }
+    },
+    "topMarginBand1": {
+      "@Name": "topMarginBand1",
+      "@ControlType": "TopMargin",
+      "@Dpi": "254",
+      "@Font": "Arial, 10pt",
+      "@Height": "200"
+    },
+    "bottomMarginBand1": {
+      "@Name": "bottomMarginBand1",
+      "@ControlType": "BottomMargin",
+      "@Dpi": "254",
+      "@Font": "Arial, 10pt",
+      "@Height": "200"
+    }
+  },
+  "DesignerOptions": {
+    "@ShowExportWarnings": "false"
+  },
+  "Records": {
+    "CompanyInformation": {
+      "@Table": "Company Information",
+      "@No": "79",
+      "@Name": "CompanyInformation",
+      "Fields": {
+        "Picture": {
+          "@FieldName": "Picture",
+          "@FieldNo": "29"
+        }
+      }
+    }
+  }
+}
