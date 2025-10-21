@@ -1,0 +1,233 @@
+{
+  "@ReportUnit": "TenthsOfAMillimeter",
+  "@Margins": "299, 101, 200, 200",
+  "@Dpi": "254",
+  "@Font": "Segoe UI, 8pt",
+  "@ObjectName": "ForNAV 0",
+  "Bands": {
+    "Header": {
+      "@ControlType": "DataItem",
+      "@Name": "Header",
+      "@Dpi": "254",
+      "@ResetPageNumber": "true",
+      "@NewPagePerRecord": "true",
+      "@Id": "2",
+      "@MaxIteration": "1",
+      "@ReqFilterFields": "\"No.\",\"Posting Date\"",
+      "@DataItemTableView": "SORTING(\"No.\")",
+      "@DataItemTable": "Table112",
+      "@DataItemVarName": "Header",
+      "Bands": {
+        "Message": {
+          "@ControlType": "Header",
+          "@Name": "Message",
+          "@BackColor": "Transparent",
+          "@Dpi": "254",
+          "@Signature": "abc",
+          "@AllowScriptErrors": "true",
+          "@CanGrow": "true",
+          "@Height": "507.208374",
+          "Controls": {
+            "Salutation": {
+              "@Name": "Salutation",
+              "@ControlType": "TextBox",
+              "@Size": "1700.00012,58.4199524",
+              "@Location": "0,256.539978",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@SourceExpression": "ForNAVEmailText.FieldExtensions.BodyText.HasValue ? ForNAVEmailText.Greeting : Header.GetSalutation()"
+            },
+            "EmailTextTable": {
+              "@Name": "EmailTextTable",
+              "@ControlType": "Table",
+              "@Size": "1700.00012,63.5",
+              "@Dpi": "254",
+              "@Location": "0,388.145966",
+              "Rows": {
+                "EmailTableRow": {
+                  "@Name": "EmailTableRow",
+                  "@ControlType": "TableRow",
+                  "@Dpi": "254",
+                  "@Weight": "1",
+                  "Cells": {
+                    "EmailText": {
+                      "@Name": "EmailText",
+                      "@ControlType": "TableCell",
+                      "@Dpi": "254",
+                      "@Weight": "1",
+                      "@MultiLine": "true",
+                      "@SourceExpression": "ForNAVEmailText.FieldExtensions.BodyText.HasValue ? ForNAVEmailText.BodyText : CurrReport.ExpressionFormat(ForNAVSetup.FieldCaptions.EmailBody,Header.No)",
+                      "@VertAlign": "Top",
+                      "@HorzAlign": "Left",
+                      "@CanGrow": "true"
+                    }
+                  }
+                }
+              }
+            },
+            "TextBox8": {
+              "@Name": "TextBox8",
+              "@ControlType": "TextBox",
+              "@Size": "1699.99963,50",
+              "@Location": "0,451.645966",
+              "@Dpi": "254",
+              "@VertAlign": "Top",
+              "@HorzAlign": "Left",
+              "@SourceExpression": "ForNAVEmailText.Closing"
+            },
+            "CompanyInformation_Picture": {
+              "@Name": "CompanyInformation_Picture",
+              "@ControlType": "PictureBox",
+              "@Dpi": "254",
+              "@Size": "700,159.996658",
+              "@ShowOutput": "CurrReport.PrintLogo(ForNAVSetup.UsePreprintedPaper)",
+              "@SourceExpression": "ForNAVSetup.Logo",
+              "@HorzAlign": "Right",
+              "@Sizing": "ZoomImage",
+              "@Location": "1000,0"
+            }
+          }
+        },
+        "Signature": {
+          "@ControlType": "Footer",
+          "@Name": "Signature",
+          "@Dpi": "254",
+          "@BackColor": "Transparent",
+          "@Padding": "0,0,0,0,254",
+          "@Signature": "abc",
+          "@Height": "323.8092",
+          "Controls": {
+            "CompanyInformation_Information": {
+              "@Name": "CompanyInformation_Information",
+              "@ControlType": "TextBox",
+              "@Size": "1700.00012,140.000015",
+              "@Location": "0,183.809189",
+              "@Dpi": "254",
+              "@Font": "Segoe UI, 8pt",
+              "@HorzAlign": "Center",
+              "@SourceExpression": [
+                "var joinFormat = ' : ';",
+                "CurrReport.JoinStrings(' | ',",
+                "CompanyInformation.FieldExtensions.PhoneNo.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.E_Mail.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.HomePage.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.VATRegistrationNo.Format(joinFormat),",
+                "CompanyInformation.FieldExtensions.IBAN.Format(joinFormat), ",
+                "CompanyInformation.FieldExtensions.SWIFTCode.Format(joinFormat))",
+                ""
+              ]
+            },
+            "CompanyInformation_Name": {
+              "@Name": "CompanyInformation_Name",
+              "@ControlType": "TextBox",
+              "@Size": "1185.33337,58.41999",
+              "@Location": "0,47.5192261",
+              "@Dpi": "254",
+              "@SourceExpression": "CompanyInformation.Name"
+            }
+          }
+        }
+      },
+      "Fields": {
+        "No": {
+          "@FieldName": "No.",
+          "@FieldNo": "3"
+        },
+        "FormatRegion": {
+          "@FieldName": "Format Region",
+          "@FieldNo": "42"
+        }
+      }
+    },
+    "topMarginBand1": {
+      "@Name": "topMarginBand1",
+      "@ControlType": "TopMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    },
+    "bottomMarginBand1": {
+      "@Name": "bottomMarginBand1",
+      "@ControlType": "BottomMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    }
+  },
+  "DesignerOptions": {
+    "@ShowExportWarnings": "false"
+  },
+  "Records": {
+    "CompanyInformation": {
+      "@Table": "Company Information",
+      "@No": "79",
+      "@Name": "CompanyInformation",
+      "Fields": {
+        "Name": {
+          "@FieldName": "Name",
+          "@FieldNo": "2"
+        },
+        "PhoneNo": {
+          "@FieldName": "Phone No.",
+          "@FieldNo": "7"
+        },
+        "VATRegistrationNo": {
+          "@FieldName": "VAT Registration No.",
+          "@FieldNo": "19"
+        },
+        "E_Mail": {
+          "@FieldName": "E-Mail",
+          "@FieldNo": "34"
+        },
+        "HomePage": {
+          "@FieldName": "Home Page",
+          "@FieldNo": "35"
+        },
+        "IBAN": {
+          "@FieldName": "IBAN",
+          "@FieldNo": "38"
+        },
+        "SWIFTCode": {
+          "@FieldName": "SWIFT Code",
+          "@FieldNo": "39"
+        }
+      }
+    },
+    "ForNAVSetup": {
+      "@Table": "ForNAV Setup",
+      "@No": "6188471",
+      "@Name": "ForNAVSetup",
+      "@CalcFields": "Logo",
+      "Fields": {
+        "UsePreprintedPaper": {
+          "@FieldName": "Use Preprinted Paper",
+          "@FieldNo": "15"
+        },
+        "Logo": {
+          "@FieldName": "Logo",
+          "@FieldNo": "20"
+        }
+      }
+    },
+    "ForNAVEmailText": {
+      "@Table": "PTE Email Text",
+      "@No": "74100",
+      "@Name": "ForNAVEmailText",
+      "@Temporary": "true",
+      "@CalcFields": "\"Body Text\"",
+      "@DataItemLinkReference": "Header",
+      "Fields": {
+        "Greeting": {
+          "@FieldName": "Greeting",
+          "@FieldNo": "5"
+        },
+        "BodyText": {
+          "@FieldName": "Body Text",
+          "@FieldNo": "6"
+        },
+        "Closing": {
+          "@FieldName": "Closing",
+          "@FieldNo": "7"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "b0ea1d67-19d2-410f-8ed6-9cbb3fb42016",
+  "name": "Test Reminder Email",
+  "publisher": "FORNAV",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "6f0293d3-86fc-4ff8-9632-54a580be6546",
+      "name": "ForNAV Core",
+      "publisher": "ForNAV",
+      "version": "8.0.0.0"
+    },
+    {
+      "id": "83326d6d-11f8-49fd-981a-6f266a7c8d81",
+      "publisher": "ForNAV",
+      "name": "Customizable Report Pack",
+      "version": "8.0.0.0"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "26.0.0.0",
+  "idRanges": [
+    {
+      "from": 74100,
+      "to": 74149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "15.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
