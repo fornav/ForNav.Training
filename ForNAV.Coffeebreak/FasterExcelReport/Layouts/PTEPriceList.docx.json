@@ -1,0 +1,80 @@
+{
+  "@ReportUnit": "TenthsOfAMillimeter",
+  "@Margins": "209, 85, 200, 200",
+  "@Dpi": "254",
+  "@LayoutType": "Excel",
+  "@ObjectName": "PTE Price List",
+  "Bands": {
+    "PTEPriceList": {
+      "@ControlType": "DataItem",
+      "@Name": "PTEPriceList",
+      "@Dpi": "254",
+      "@Fields": "PriceListCode,ProductNo,Name,UnitPrice,Currency,BaseUnitOfMeasure,SalesLineDocumentType,SalesLineQuantity,Inventory",
+      "@Id": "1",
+      "@ReqFilterFields": "PriceListCode,ProductNo",
+      "@DataItemTable": "Table50100",
+      "Fields": {
+        "PriceListCode": {
+          "@FieldName": "PriceListCode",
+          "@FieldNo": "2"
+        },
+        "ProductNo": {
+          "@FieldName": "ProductNo",
+          "@FieldNo": "3"
+        },
+        "UnitPrice": {
+          "@FieldName": "UnitPrice",
+          "@FieldNo": "4"
+        },
+        "Currency": {
+          "@FieldName": "Currency",
+          "@FieldNo": "5"
+        },
+        "Name": {
+          "@FieldName": "Name",
+          "@FieldNo": "6"
+        },
+        "Inventory": {
+          "@FieldName": "Inventory",
+          "@FieldNo": "7"
+        },
+        "BaseUnitOfMeasure": {
+          "@FieldName": "BaseUnitOfMeasure",
+          "@FieldNo": "8"
+        },
+        "SalesLineDocumentType": {
+          "@FieldName": "SalesLineDocumentType",
+          "@FieldNo": "9"
+        },
+        "SalesLineQuantity": {
+          "@FieldName": "SalesLineQuantity",
+          "@FieldNo": "10"
+        }
+      }
+    },
+    "topMarginBand1": {
+      "@Name": "topMarginBand1",
+      "@ControlType": "TopMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    },
+    "bottomMarginBand1": {
+      "@Name": "bottomMarginBand1",
+      "@ControlType": "BottomMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    }
+  },
+  "StyleSheet": {
+    "controlStyle1": {
+      "@Name": "controlStyle1",
+      "@BorderStyle": "Inset",
+      "@Padding": "0,0,0,0,254",
+      "@BackColor": "WhiteSmoke",
+      "@StringFormat": "Near;Near;0;None;Character;Default"
+    }
+  },
+  "DesignerOptions": {
+    "@ShowExportWarnings": "false"
+  }
+}
