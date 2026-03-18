@@ -40,7 +40,7 @@ table 50100 "PTE Price List"
         {
             Caption = 'Base Unit of Measure';
         }
-        field(9; SalesLineDocumentType; Enum "Sales Document Type")
+        field(9; SalesLineDocumentType; Text[250])
         {
             Caption = 'Sales Line Document Type';
         }
@@ -89,8 +89,10 @@ table 50100 "PTE Price List"
             Rec.Name := PriceListQuery.Name;
             Rec.Inventory := PriceListQuery.Inventory;
             Rec.BaseUnitOfMeasure := PriceListQuery.BaseUnitOfMeasure;
-            Rec.SalesLineDocumentType := PriceListQuery.SalesLineDocumentType;
             Rec.SalesLineQuantity := PriceListQuery.SalesLineQuantity;
+            if Rec.SalesLineQuantity > 0 then
+                Rec.SalesLineDocumentType := Format(PriceListQuery.SalesLineDocumentType);
+
             Rec.Insert();
         end;
         PriceListQuery.Close();

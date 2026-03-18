@@ -6,7 +6,6 @@ query 50100 "PTE Price List"
     {
         dataitem(SalesPrice; "Price List Line")
         {
-            DataItemTableFilter = "Unit Price" = filter('>0'), "Asset Type" = const(Item);
             column(PriceListCode; "Price List Code") { }
             column(ProductNo; "Product No.") { }
             column(UnitPrice; "Unit Price") { }

@@ -3,15 +3,15 @@
   "@Margins": "209, 85, 200, 200",
   "@Dpi": "254",
   "@LayoutType": "Excel",
-  "@ObjectName": "ForNAV 56789",
+  "@ObjectName": "PTE Price List",
   "Bands": {
     "PTEPriceList": {
       "@ControlType": "DataItem",
       "@Name": "PTEPriceList",
       "@Dpi": "254",
-      "@Fields": "PriceListCode,ProductNo,Name,BaseUnitOfMeasure,Currency,Inventory,UnitPrice,SalesLineDocumentType,SalesLineQuantity",
-      "@Temporary": "true",
+      "@Fields": "PriceListCode,ProductNo,Name,UnitPrice,Currency,BaseUnitOfMeasure,SalesLineDocumentType,SalesLineQuantity,Inventory",
       "@Id": "1",
+      "@ReqFilterFields": "PriceListCode,ProductNo",
       "@DataItemTable": "Table50100",
       "Fields": {
         "PriceListCode": {
