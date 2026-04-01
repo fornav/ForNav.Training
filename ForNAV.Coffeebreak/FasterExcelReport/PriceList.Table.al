@@ -93,7 +93,8 @@ table 50100 "PTE Price List"
             if Rec.SalesLineQuantity > 0 then
                 Rec.SalesLineDocumentType := Format(PriceListQuery.SalesLineDocumentType);
 
-            Rec.Insert();
+            if (PriceListQuery.SalesLineDocumentType = PriceListQuery.SalesLineDocumentType::Order) or (PriceListQuery.SalesLineQuantity = 0) then
+                Rec.Insert();
         end;
         PriceListQuery.Close();
         Rec.Reset();
