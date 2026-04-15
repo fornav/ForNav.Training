@@ -22,4 +22,4 @@ if (searchIndex == -1) {
 }
 
 // TextBox
-items.map(item => item.Description + ': ' + item.quantity).join('\n')
+items.map(item => item.description + ': ' + item.quantity).join('\n')
