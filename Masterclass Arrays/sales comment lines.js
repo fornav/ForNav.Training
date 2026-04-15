@@ -1,7 +1,7 @@
-// Line OnPreDataItem
+// Header OnPreDataItem
 var comments = []
 
-// Line OnAfterGetRecord
+// Header OnAfterGetRecord
 // Clear the array
 comments = []
 
@@ -16,5 +16,5 @@ while (SalesCommentLine.Next()) {
 }
 
 // Text Box Source Expression
-// Join the entries in the comments array to a single text separated by a neline character
+// Join the entries in the comments array to a single text separated by a newline character
 comments.join('\n')
