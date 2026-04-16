@@ -11,6 +11,18 @@
   "url": "",
   "logo": "",
   "dependencies": [
+    {
+      "id": "83326d6d-11f8-49fd-981a-6f266a7c8d81",
+      "name": "Customizable Report Pack",
+      "version": "4.0.0.0",
+      "publisher": "ForNAV"
+    },
+    {
+      "id": "6f0293d3-86fc-4ff8-9632-54a580be6546",
+      "name": "ForNAV Core",
+      "version": "4.0.0.0",
+      "publisher": "ForNAV"
+    }
   ],
   "screenshots": [],
   "platform": "23.0.0.0",

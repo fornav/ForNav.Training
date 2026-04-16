@@ -1,0 +1,61 @@
+{
+  "@ReportUnit": "TenthsOfAMillimeter",
+  "@Margins": "209, 85, 200, 200",
+  "@Dpi": "254",
+  "@ExtendPagesJson": "[{\"SourceTableNo\":18,\"pageNameValue\":\"Customer List\",\"Promoted\":true,\"PromotedCategoryValue\":2,\"PromotedCategory\":\"Report\",\"ImageValue\":696,\"Image\":\"PrintCover\",\"Caption\":null,\"DirectPrint\":false,\"Area\":null,\"No\":22,\"Name\":\"Customer List\",\"ExtensionNo\":56789,\"SourceTable\":\"Customer\",\"Card\":false,\"ExtensionName\":\"PageExtension56789\"}]",
+  "@LayoutType": "Excel",
+  "@ObjectName": "ForNAV Customer List",
+  "Bands": {
+    "Customer": {
+      "@ControlType": "DataItem",
+      "@Name": "Customer",
+      "@Dpi": "254",
+      "@Fields": "\"No.\",Name,Address,\"Balance (LCY)\"",
+      "@CalcFields": "\"Balance (LCY)\"",
+      "@Id": "1",
+      "@DataItemTable": "Table18",
+      "Fields": {
+        "No": {
+          "@FieldName": "No.",
+          "@FieldNo": "1"
+        },
+        "Name": {
+          "@FieldName": "Name",
+          "@FieldNo": "2"
+        },
+        "Address": {
+          "@FieldName": "Address",
+          "@FieldNo": "5"
+        },
+        "Balance_LCY": {
+          "@FieldName": "Balance (LCY)",
+          "@FieldNo": "59"
+        }
+      }
+    },
+    "topMarginBand1": {
+      "@Name": "topMarginBand1",
+      "@ControlType": "TopMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    },
+    "bottomMarginBand1": {
+      "@Name": "bottomMarginBand1",
+      "@ControlType": "BottomMargin",
+      "@Dpi": "254",
+      "@Height": "200"
+    }
+  },
+  "StyleSheet": {
+    "controlStyle1": {
+      "@Name": "controlStyle1",
+      "@BorderStyle": "Inset",
+      "@Padding": "0,0,0,0,254",
+      "@BackColor": "WhiteSmoke",
+      "@StringFormat": "Near;Near;0;None;Character;Default"
+    }
+  },
+  "DesignerOptions": {
+    "@ShowExportWarnings": "false"
+  }
+}
