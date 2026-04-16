@@ -1,7 +1,7 @@
 # FORNAV.Training
 Training resources
 
-## Rin js file locally in a terminal
+## Run js file locally in a terminal
 Install node.js from https://nodejs.org/en/download 
 
 ```Powershell
