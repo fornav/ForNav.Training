@@ -3,14 +3,13 @@
 ## Email Methods on Posted Sales Invoice
 
 ### Email from Scenario
-Triggered via the **Email from Scenario** action on the Posted Sales Invoice page.  
-Calls `EmailScenarioFunctions.EmailFromScenario`, which generates an email using the `PTE Test` email scenario, attaches the invoice as a PDF (rendered by the ForNAV VAT Sales Invoice report), and sends it directly through the BC email framework.  
-The mail dialog is shown to the user before sending.
+Use the **Email from Scenario** action on the Posted Sales Invoice page to send an email via the FORNAV email scenario framework.  
+The action calls `EmailScenarioFunctions.EmailFromScenario`, which generates the email body using the `PTE Test` email scenario, renders the ForNAV VAT Sales Invoice report as a PDF and attaches it, then sends the email through the BC email framework.  
+The user sees the mail dialog before the email is sent.
 
 ### Email from Report Selections
-Triggered via the **Email from Report Selections** action on the Posted Sales Invoice page.  
-Calls `ReportSelections.SendEmailToCust` using the `PTE Test` report selection usage.  
-This follows the standard Business Central report selections flow: the report and email template configured under the matching report selection entry are used to compose and send the email to the sell-to customer.
+Use the **Email from Report Selections** action on the Posted Sales Invoice page to send an email via the standard BC report selections flow.  
+The action calls `ReportSelections.SendEmailToCust` with the `PTE Test` report selection usage, which picks up the report and email template configured for that usage and sends the email to the sell-to customer.
 
 ---
 
@@ -18,27 +17,28 @@ This follows the standard Business Central report selections flow: the report an
 
 ### Scenario 1: Email from Scenario
 
-The following code pieces are required for the **Email from Scenario** flow:
+Add these files to implement the **Email from Scenario** flow:
 
 | File | Purpose |
 |------|---------|
-| `EmailScenario.EnumExt.al` | Extends the `Email Scenario` enum with the `PTE Test` value, making the scenario available in BC's email framework. |
-| `EmailScenarioFunctions.Codeunit.al` | Contains the `EmailFromScenario` procedure that generates the email body (via ForNAV Text Builder), renders the report as a PDF attachment, and sends the email using the `PTE Test` scenario. Also subscribes to `OnBeforeGetSourceTableNo` on `ForNAV Email Scenario Mapping` to map the `PTE Test` scenario to `Sales Invoice Header`, so ForNAV knows which table to use when building the email body. |
+| `EmailScenario.EnumExt.al` | Extend the `Email Scenario` enum with the `PTE Test` value to make the scenario available in BC's email framework. |
+| `EmailScenarioFunctions.Codeunit.al` | Implement the `EmailFromScenario` procedure: generate the email body via ForNAV Text Builder, render the report as a PDF attachment, and send the email using the `PTE Test` scenario. Subscribe to `OnBeforeGetSourceTableNo` on `ForNAV Email Scenario Mapping` to tell ForNAV that `PTE Test` maps to `Sales Invoice Header`. |
 
 **Setup required in BC:**  
-Configure an email template for the `PTE Test` scenario under *Email > Email Scenarios*.
+Create an email template for the `PTE Test` scenario.
 
 ---
 
 ### Scenario 2: Email from Report Selections
 
-The following code pieces are required for the **Email from Report Selections** flow:
+Add these files to implement the **Email from Report Selections** flow:
 
 | File | Purpose |
 |------|---------|
-| `ReportSelectionUsage.enumExt.al` | Extends the `Report Selection Usage` enum with the `PTE Test` value, so a report selection entry can be created for this usage. |
-| `ReportSelUsageSales.enumExt.al` | Extends the `Report Selection Usage Sales` enum with the `PTE Test` value, making it selectable in the **Report Selection - Sales** page. |
-| `ReportSelectionEvents.Codeunit.al` | Contains three event subscribers: (1) `OnAfterFromReportSelectionUsage` maps the `PTE Test` report selection usage to the `PTE Test` email scenario so the correct email template is used; (2) `OnSetUsageFilterOnAfterSetFiltersByReportUsage` filters the Report Selections page to show the correct records when the sales usage is set to `PTE Test`; (3) `OnInitUsageFilterOnElseCase` initialises the sales usage filter from the base usage when the Report Selection - Sales page opens. |
+| `ReportSelectionUsage.enumExt.al` | Extend the `Report Selection Usage` enum with the `PTE Test` value to allow creating a report selection entry for this usage. |
+| `ReportSelUsageSales.enumExt.al` | Extend the `Report Selection Usage Sales` enum with the `PTE Test` value to make it selectable on the **Report Selection - Sales** page. |
+| `ReportSelectionEvents.Codeunit.al` | Subscribe to three events: (1) `OnAfterFromReportSelectionUsage` — map the `PTE Test` report selection usage to the `PTE Test` email scenario so BC uses the correct email template; (2) `OnSetUsageFilterOnAfterSetFiltersByReportUsage` — filter the Report Selections page to the correct records when the user selects the `PTE Test` sales usage; (3) `OnInitUsageFilterOnElseCase` — initialise the sales usage filter from the base usage when the Report Selection - Sales page opens. |
 
 **Setup required in BC:**  
-Add a report selection entry for the `PTE Test` usage under *Report Selection - Sales*, pointing to the report that should be used (e.g. the ForNAV VAT Sales Invoice report).
+Create an email template for the `PTE Test` scenario.
+Add a report selection entry for the `PTE Test` usage under *Report Selection - Sales* and point it to the report to use (e.g. the ForNAV VAT Sales Invoice report).
