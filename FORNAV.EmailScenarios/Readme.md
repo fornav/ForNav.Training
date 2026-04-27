@@ -1,21 +1,17 @@
 #Readme
 
-## Email Methods on Posted Sales Invoice
-
-### Email from Scenario
-Use the **Email from Scenario** action on the Posted Sales Invoice page to send an email via the FORNAV email scenario framework.  
-The action calls `EmailScenarioFunctions.EmailFromScenario`, which generates the email body using the `PTE Test` email scenario, renders the ForNAV VAT Sales Invoice report as a PDF and attaches it, then sends the email through the BC email framework.  
-The user sees the mail dialog before the email is sent.
-
-### Email from Report Selections
-Use the **Email from Report Selections** action on the Posted Sales Invoice page to send an email via the standard BC report selections flow.  
-The action calls `ReportSelections.SendEmailToCust` with the `PTE Test` report selection usage, which picks up the report and email template configured for that usage and sends the email to the sell-to customer.
+## Use custom email scenarios with the FORNAV Email Templates 
+The FORNAV Email Templates use the standard email scenarios to determine which email to send in which situation.
+The email scenarios are extendible, which means that you can add your own, just like you can extend the report selection usage enum to define selections for custom reports.
+There are two possible scenarios. You can simply call the FORNAV Email Template code directly for a fast and simple email implementation, or you can implement the standard Report Selections code. Both work once you have set up the necessary Enums.
 
 ---
 
-## Required Code per Scenario
+### Scenario 1: Email from FORNAV Email Template code
 
-### Scenario 1: Email from Scenario
+Use the **Email from Scenario** action on the Posted Sales Invoice page to send an email via the FORNAV email scenario framework.  
+The action calls `EmailScenarioFunctions.EmailFromScenario`, which generates the email body using the `PTE Test` email scenario, renders the ForNAV VAT Sales Invoice report as a PDF and attaches it, then sends the email through the BC email framework.  
+The user sees the mail dialog before the email is sent.
 
 Add these files to implement the **Email from Scenario** flow:
 
@@ -30,6 +26,9 @@ Create an email template for the `PTE Test` scenario.
 ---
 
 ### Scenario 2: Email from Report Selections
+
+Use the **Email from Report Selections** action on the Posted Sales Invoice page to send an email via the standard BC report selections flow.  
+The action calls `ReportSelections.SendEmailToCust` with the `PTE Test` report selection usage, which picks up the report and email template configured for that usage and sends the email to the sell-to customer.
 
 Add these files to implement the **Email from Report Selections** flow:
 
