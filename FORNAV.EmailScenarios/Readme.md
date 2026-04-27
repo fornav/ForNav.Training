@@ -1,5 +1,10 @@
 #Readme
 
+Copyright (c) 2017-2026 FORNAV ApS - All Rights Reserved  
+The intellectual work and technical concepts contained in this file are proprietary to FORNAV.  
+Unauthorized reverse engineering, distribution or copying of this file, parts hereof, or derived work, via any medium is strictly prohibited without written permission from FORNAV ApS.  
+This source code is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
 ## Use custom email scenarios with the FORNAV Email Templates 
 The FORNAV Email Templates use the standard email scenarios to determine which email to send in which situation.
 The email scenarios are extendible, which means that you can add your own, just like you can extend the report selection usage enum to define selections for custom reports.
@@ -10,7 +15,7 @@ There are two possible scenarios. You can simply call the FORNAV Email Template 
 ### Scenario 1: Email from FORNAV Email Template code
 
 Use the **Email from Scenario** action on the Posted Sales Invoice page to send an email via the FORNAV email scenario framework.  
-The action calls `EmailScenarioFunctions.EmailFromScenario`, which generates the email body using the `PTE Test` email scenario, renders the ForNAV VAT Sales Invoice report as a PDF and attaches it, then sends the email through the BC email framework.  
+The action calls `EmailScenarioFunctions.EmailFromScenario`, which generates the email body using the `PTE Test` email scenario, renders the FORNAV VAT Sales Invoice report as a PDF and attaches it, then sends the email through the BC email framework.  
 The user sees the mail dialog before the email is sent.
 
 Add these files to implement the **Email from Scenario** flow:
@@ -18,7 +23,7 @@ Add these files to implement the **Email from Scenario** flow:
 | File | Purpose |
 |------|---------|
 | `EmailScenario.EnumExt.al` | Extend the `Email Scenario` enum with the `PTE Test` value to make the scenario available in BC's email framework. |
-| `EmailScenarioFunctions.Codeunit.al` | Implement the `EmailFromScenario` procedure: generate the email body via ForNAV Text Builder, render the report as a PDF attachment, and send the email using the `PTE Test` scenario. Subscribe to `OnBeforeGetSourceTableNo` on `ForNAV Email Scenario Mapping` to tell ForNAV that `PTE Test` maps to `Sales Invoice Header`. |
+| `EmailScenarioFunctions.Codeunit.al` | Implement the `EmailFromScenario` procedure: generate the email body via FORNAV Text Builder, render the report as a PDF attachment, and send the email using the `PTE Test` scenario. Subscribe to `OnBeforeGetSourceTableNo` on `FORNAV Email Scenario Mapping` to tell FORNAV that `PTE Test` maps to `Sales Invoice Header`. |
 
 **Setup required in BC:**  
 Create an email template for the `PTE Test` scenario.
@@ -40,4 +45,4 @@ Add these files to implement the **Email from Report Selections** flow:
 
 **Setup required in BC:**  
 Create an email template for the `PTE Test` scenario.
-Add a report selection entry for the `PTE Test` usage under *Report Selection - Sales* and point it to the report to use (e.g. the ForNAV VAT Sales Invoice report).
+Add a report selection entry for the `PTE Test` usage under *Report Selection - Sales* and point it to the report to use (e.g. the FORNAV VAT Sales Invoice report).

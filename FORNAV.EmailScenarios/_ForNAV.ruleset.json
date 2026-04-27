@@ -1,42 +1,5 @@
 {
-    "name": "ForNAV",
-    "description": "ForNAV Rules",
-    "generalAction": "Hidden",
-    "rules": [
-        {
-            "id": "AA0470",
-            "action": "Hidden",
-            "justification": "Variable 'xxx' with placeholders should have a comment explaining their content."
-        },
-        {
-            "id": "AA0205",
-            "action": "Hidden",
-            "justification": "Use of unassigned variable 'index'. All variables are asigned with a default value"
-        },
-        {
-            "id": "AL0667",
-            "action": "Hidden",
-            "justification": "..."
-        },
-        {
-            "id": "AS0051",
-            "action": "Hidden",
-            "justification": "Logo, This is the development shell..."
-        },
-        {
-            "id": "AS0015",
-            "action": "Hidden",
-            "justification": "Translation, This is the development shell..."
-        },
-        {
-            "id": "AS0139",
-            "action": "Hidden",
-            "justification": "Using default values for now."
-        },
-        {
-            "id": "AL0254",
-            "action": "Hidden",
-            "justification": "Not possible to solve"
-        }
-    ]
+    "name": "FORNAV",
+    "description": "FORNAV Rules",
+    "generalAction": "Hidden"
 }

@@ -1,3 +1,7 @@
+// Copyright (c) 2017-2026 FORNAV ApS - All Rights Reserved
+// The intellectual work and technical concepts contained in this file are proprietary to FORNAV.
+// Unauthorized reverse engineering, distribution or copying of this file, parts hereof, or derived work, via any medium is strictly prohibited without written permission from FORNAV ApS.
+// This source code is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 namespace FORNAV.Training.EmailScenarios;
 using Microsoft.Sales.History;
 using System.EMail;
@@ -22,13 +26,13 @@ codeunit 50102 "Email Scenario Functions"
         RecRef.SetRecFilter();
         TextBuilderInterface.GenerateEmail(TempEmailItem, Enum::"Email Scenario"::"PTE Test", RecRef.Number, RecRef.Field(RecRef.SystemIdNo).Value);
         TempBlob.CreateOutStream(os);
-        Report.SaveAs(Report::"ForNAV VAT Sales Invoice", '', ReportFormat::Pdf, os, RecRef);
+        Report.SaveAs(Report::"FORNAV VAT Sales Invoice", '', ReportFormat::Pdf, os, RecRef);
         TempBlob.CreateInStream(is);
         TempEmailItem.AddAttachment(is, 'AttachmentName.pdf');
         TempEmailItem.Send(HideMailDialog, Enum::"Email Scenario"::"PTE Test");
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"ForNAV Email Scenario Mapping", OnBeforeGetSourceTableNo, '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"FORNAV Email Scenario Mapping", OnBeforeGetSourceTableNo, '', false, false)]
     local procedure OnBeforeGetSourceTableNo(Source: Enum "Email Scenario"; var TableNo: Integer; var Handled: Boolean)
     begin
         case Source of
