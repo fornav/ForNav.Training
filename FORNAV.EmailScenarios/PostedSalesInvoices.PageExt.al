@@ -5,7 +5,7 @@
 namespace FORNAV.Training.EmailScenarios;
 using Microsoft.Sales.History;
 using Microsoft.Foundation.Reporting;
-pageextension 50100 "Posted Sales Invoice" extends "Posted Sales Invoice"
+pageextension 50101 "Posted Sales Invoices" extends "Posted Sales Invoices"
 {
     actions
     {
@@ -44,7 +44,7 @@ pageextension 50100 "Posted Sales Invoice" extends "Posted Sales Invoice"
                 end;
             }
         }
-        addlast(Category_Category6)
+        addlast(Category_Category7)
         {
 
             actionref(EmailScenario_Promoted; EmailScenario)
