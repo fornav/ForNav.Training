@@ -23,7 +23,6 @@ codeunit 50102 "Email Scenario Functions"
         os: OutStream;
     begin
         RecRef.GetTable(RecVar);
-        // RecRef.SetRecFilter();
         TextBuilderInterface.GenerateEmail(TempEmailItem, Enum::"Email Scenario"::"PTE Test", RecRef.Number, RecRef.Field(RecRef.SystemIdNo).Value);
         TempBlob.CreateOutStream(os);
         Report.SaveAs(Report::"FORNAV VAT Sales Invoice", '', ReportFormat::Pdf, os, RecRef);
