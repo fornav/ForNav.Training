@@ -17,18 +17,17 @@ codeunit 50102 "Email Scenario Functions"
     procedure EmailFromScenario(RecVar: Variant; EmailScenario: Enum "Email Scenario"; HideMailDialog: Boolean)
     var
         TempEmailItem: Record "Email Item" temporary;
-        TextBuilderInterface: Codeunit "FORNAV Text Builder Interface";
         TempBlob: Codeunit "Temp Blob";
         RecRef: RecordRef;
         is: InStream;
         os: OutStream;
     begin
         RecRef.GetTable(RecVar);
-        TextBuilderInterface.GenerateEmail(TempEmailItem, EmailScenario, RecRef.Number, RecRef.Field(RecRef.SystemIdNo).Value);
         TempBlob.CreateOutStream(os);
         Report.SaveAs(Report::"FORNAV VAT Sales Invoice", '', ReportFormat::Pdf, os, RecRef);
         TempBlob.CreateInStream(is);
         TempEmailItem.AddAttachment(is, 'AttachmentName.pdf');
+        TempEmailItem.AddSourceDocument(RecRef.Number, RecRef.Field(RecRef.SystemIdNo).Value);
         TempEmailItem.Send(HideMailDialog, EmailScenario);
     end;
 
