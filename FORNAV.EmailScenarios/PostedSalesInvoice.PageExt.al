@@ -3,8 +3,9 @@
 // Unauthorized reverse engineering, distribution or copying of this file, parts hereof, or derived work, via any medium is strictly prohibited without written permission from FORNAV ApS.
 // This source code is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 namespace FORNAV.Training.EmailScenarios;
-using Microsoft.Sales.History;
 using Microsoft.Foundation.Reporting;
+using Microsoft.Sales.History;
+using System.Email;
 pageextension 50100 "Posted Sales Invoice" extends "Posted Sales Invoice"
 {
     actions
@@ -24,7 +25,7 @@ pageextension 50100 "Posted Sales Invoice" extends "Posted Sales Invoice"
                 begin
                     SalesInvHeader := Rec;
                     CurrPage.SetSelectionFilter(SalesInvHeader);
-                    EmailScenarioFunctions.EmailFromScenario(SalesInvHeader, false);
+                    EmailScenarioFunctions.EmailFromScenario(SalesInvHeader, Enum::"Email Scenario"::"PTE Test", false);
                 end;
             }
             action(ReportSelectionUsage)

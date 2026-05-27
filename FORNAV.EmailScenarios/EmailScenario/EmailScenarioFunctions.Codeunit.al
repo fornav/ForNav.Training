@@ -12,23 +12,23 @@ codeunit 50102 "Email Scenario Functions"
     /// Generates and sends an email for the given record using the configured email scenario.
     /// </summary>
     /// <param name="RecVar">The record to generate the email for.</param>
+    /// <param name="EmailScenario">The email scenario to use for generating the email.</param>
     /// <param name="HideMailDialog">If true, the email is sent without showing the mail dialog.</param>
-    procedure EmailFromScenario(RecVar: Variant; HideMailDialog: Boolean)
+    procedure EmailFromScenario(RecVar: Variant; EmailScenario: Enum "Email Scenario"; HideMailDialog: Boolean)
     var
         TempEmailItem: Record "Email Item" temporary;
-        TextBuilderInterface: Codeunit "FORNAV Text Builder Interface";
         TempBlob: Codeunit "Temp Blob";
         RecRef: RecordRef;
         is: InStream;
         os: OutStream;
     begin
         RecRef.GetTable(RecVar);
-        TextBuilderInterface.GenerateEmail(TempEmailItem, Enum::"Email Scenario"::"PTE Test", RecRef.Number, RecRef.Field(RecRef.SystemIdNo).Value);
         TempBlob.CreateOutStream(os);
         Report.SaveAs(Report::"FORNAV VAT Sales Invoice", '', ReportFormat::Pdf, os, RecRef);
         TempBlob.CreateInStream(is);
         TempEmailItem.AddAttachment(is, 'AttachmentName.pdf');
-        TempEmailItem.Send(HideMailDialog, Enum::"Email Scenario"::"PTE Test");
+        TempEmailItem.AddSourceDocument(RecRef.Number, RecRef.Field(RecRef.SystemIdNo).Value);
+        TempEmailItem.Send(HideMailDialog, EmailScenario);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"FORNAV Email Scenario Mapping", OnBeforeGetSourceTableNo, '', false, false)]
