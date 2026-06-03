@@ -22,4 +22,9 @@ if (searchIndex == -1) {
 }
 
 // TextBox
-items.map(item => item.description + ': ' + item.quantity).join('\n')
+// Demo the raw content of an array
+JSON.stringify(items)
+// items.sort((a, b) => a.description.localeCompare(b.description));
+items.map(item => item.description + ': ' + item.quantity)
+    .sort((a, b) => a.localeCompare(b))
+    .join('\n')

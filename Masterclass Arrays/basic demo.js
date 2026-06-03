@@ -1,8 +1,9 @@
-let items = []
+console.clear()
+let items = ['a', 'd']
 
-items.push('a')
-items.push('b')
 items.push('')
 items.push('c')
 
-console.log(items.join('\n'))
+console.log(items.sort().join('\n'))
+console.log('------------')
+console.log(items.filter(item => item !== '').sort().join('\n'))
