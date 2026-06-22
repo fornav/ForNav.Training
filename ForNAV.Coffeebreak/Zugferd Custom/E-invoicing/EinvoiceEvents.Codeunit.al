@@ -5,9 +5,9 @@ codeunit 50100 "PTE EInvoice Events"
     var
         SalesInvoiceHeader: Record "Sales Invoice Header";
         ResponsibilityCenter: Record "Responsibility Center";
-        Seller: Record "ForNAV Party";
+        TempSeller: Record "ForNAV Party" Temporary;
         SalesInvoiceLine: Record "Sales Invoice Line";
-        TradeLineItem: Record "ForNAV TradeLineItem";
+        TempTradeLineItem: Record "ForNAV TradeLineItem" Temporary;
         LineNo: Integer;
 
     begin
@@ -18,20 +18,20 @@ codeunit 50100 "PTE EInvoice Events"
                     InvoiceDescriptor.PaymentReference := SalesInvoiceHeader."PTE New Payment Reference";
 
                     if ResponsibilityCenter.Get(SalesInvoiceHeader."Responsibility Center") then begin
-                        InvoiceDescriptor.FindFirstSeller(Seller);
-                        Seller.Name := ResponsibilityCenter.Name;
-                        Seller.Modify();
+                        InvoiceDescriptor.FindFirstSeller(TempSeller);
+                        TempSeller.Name := ResponsibilityCenter.Name;
+                        TempSeller.Modify();
                     end;
 
-                    if InvoiceDescriptor.FindFirstTradeLineItems(TradeLineItem) then
+                    if InvoiceDescriptor.FindFirstTradeLineItems(TempTradeLineItem) then
                         repeat
-                            Evaluate(LineNo, TradeLineItem.LineID);
+                            Evaluate(LineNo, TempTradeLineItem.LineID);
                             SalesInvoiceLine.Get(SalesInvoiceHeader."No.", LineNo);
                             if SalesInvoiceLine."PTE E-Inv. Description" <> '' then begin
-                                TradeLineItem.Description := SalesInvoiceLine."PTE E-Inv. Description";
-                                TradeLineItem.Modify();
+                                TempTradeLineItem.Description := SalesInvoiceLine."PTE E-Inv. Description";
+                                TempTradeLineItem.Modify();
                             end;
-                        until TradeLineItem.Next() = 0;
+                        until TempTradeLineItem.Next() = 0;
 
                 end;
         end;
