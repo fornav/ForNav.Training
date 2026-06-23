@@ -4,6 +4,7 @@
   "@Dpi": "254",
   "@Font": "Arial, 9pt",
   "@ReqSaveValues": "true",
+  "@ReportsForNavVersion": "8.2.0.2797",
   "@ObjectName": "ForNAV Latest",
   "Bands": {
     "Header": {
@@ -24,6 +25,14 @@
           "@PrintOnEveryPage": "true",
           "@Height": "714.375",
           "Controls": {
+            "TextBox5": {
+              "@Name": "TextBox5",
+              "@ControlType": "TextBox",
+              "@Size": "254,58.42",
+              "@Location": "933.9792,214.312332",
+              "@Dpi": "254",
+              "@SourceExpression": "DynamicsNavDataSet.NoofCopies"
+            },
             "BarCode1": {
               "@Name": "BarCode1",
               "@ControlType": "BarCode",
@@ -148,9 +157,9 @@
           "@Dpi": "254",
           "@Id": "3",
           "@TotalFields": "29",
-          "@DataItemTableView": "SORTING(\"Document No.\",\"Line No.\")",
+          "@DataItemTableView": "SORTING(\"Document No.\", \"Line No.\")",
           "@DataItemLinkReference": "Header",
-          "@DataItemLink": "\"Document No.\"=FIELD(\"No.\")",
+          "@DataItemLink": "\"Document No.\" = FIELD(\"No.\")",
           "@DataItemTable": "Table113",
           "@DataItemVarName": "Line",
           "Bands": {
